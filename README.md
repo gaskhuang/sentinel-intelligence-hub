@@ -9,6 +9,7 @@ G大專屬的數位情報與自動化報告中心。
 這裡記錄了所有由阿蓋小弟自動產出的情報報表，點選網址即可連結：
 
 | 日期 | 報告題目 | 在線連結 |
+| 2026-02-09 | 🦞 OpenCRAW 龍蝦安裝手冊：戰略級自動化部署指南 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/LOBSTER_INSTALLATION_MANUAL.html) |
 | 2026-02-09 | SOUL.md 深度情報彙報 (Facebook/Reddit/X 全網討論) | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/SOUL_MD_Deep_Dive_Report.html) || :--- | :--- | :--- |
 | 2026-02-09 | 每日深夜戰略覆盤與評分 (2/8 - 2/9) | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-08_Nightly_PostMortem.html) |
 | 2026-02-08 | 兩日執行戰果總結報告 (2/7-2/8) | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-08_TwoDay_Executive_Summary.html) |

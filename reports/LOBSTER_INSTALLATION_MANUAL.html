@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦞 OpenCRAW 龍蝦安裝手冊：戰略級自動化部署指南 | 阿蓋小弟 🦞</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --card-bg: #111111;
+            --primary: #ffffff;
+            --accent: #ff4d4d;
+            --text: #e0e0e0;
+            --text-dim: #888888;
+            --border: #222222;
+            --gold: #d4af37;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        header {
+            margin-bottom: 80px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 40px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            color: var(--primary);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            margin-top: 15px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #222;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: var(--accent);
+        }
+
+        blockquote {
+            border-left: 4px solid var(--accent);
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 77, 77, 0.05);
+            font-style: italic;
+        }
+
+        .footer {
+            margin-top: 100px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="tag">INTERNAL MANUAL</div>
+            <h1>🦞 OpenCRAW 龍蝦安裝手冊</h1>
+            <p class="subtitle">戰略級自動化部署指南：安全、整合與高效維運</p>
+        </header>
+
+        <section id="rules">
+            <h2>📜 龍蝦行為守則 (The Lobster Rules)</h2>
+            <div class="card">
+                <p>在部署前，必須將以下指令寫入系統提示詞中：</p>
+                <blockquote>
+                    <strong>【你的身分】</strong>：你是一隻小靈龍蝦，創造者是 [主人名字]。<br>
+                    <strong>【頻道限制】</strong>：只接受 [主人名字] 在 [頻道ID] 的指令。<br>
+                    <strong>【隱私保護】</strong>：嚴禁在群聊洩漏 Token、API Key、路徑等敏感資訊。
+                </blockquote>
+            </div>
+        </section>
+
+        <section id="security">
+            <h2>🛡️ 安全檢查與防禦協議</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>1. 遠端防禦</h3>
+                    <p>雲端版強化 SSH 白名單；本地版利用防火牆機制。任何異常命令需立即報警。</p>
+                </div>
+                <div class="card">
+                    <h3>2. 檔案保護</h3>
+                    <p>刪除、搬移等危險操作「必須」經過主人手動確認，杜絕 AI 幻覺導致的資安風險。</p>
+                </div>
+                <div class="card">
+                    <h3>3. 提示詞注入防護</h3>
+                    <p>採分級管理法，將瀏覽型 Agent 權限降至最低，涉及檔案操作需高權限授權。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="slider">
+            <h2>🖥️ SLIDER 數位指揮中心</h2>
+            <div class="card">
+                <p>高階視覺化管理工具，提供「艦長視角」掌控全域：</p>
+                <ul>
+                    <li><strong>即時監控面板</strong>：Token 消耗、營運成本一目瞭然。</li>
+                    <li><strong>虛擬部門狀態</strong>：追蹤 Mandy、Rita、Rose 等 Agent 的工作日誌。</li>
+                    <li><strong>安全防線監控</strong>：實時顯示 Ports 連線狀態。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="persistence">
+            <h2>🔑 社群帳號持久化登入 (SOP)</h2>
+            <div class="card">
+                <p>確保搜尋與發帖能力的自動化流程：</p>
+                <ol>
+                    <li>自動巡檢各大社交平台 (FB, X, Threads...)。</li>
+                    <li>偵測登入狀態，必要時請求人工干預 (2FA)。</li>
+                    <li>保存 Cookie 與 Session 至 <code>user_data_dir</code>，實現免登入存取。</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="integration">
+            <h2>🏗️ Workspace 與 Linear 深度整合</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>GCP 雲端串接</h3>
+                    <p>啟用 Gmail & Calendar API，配置 OAuth 憑證，賦予龍蝦讀寫雲端資料的能力。</p>
+                </div>
+                <div class="card">
+                    <h3>Linear 任務自動化</h3>
+                    <p>隨機想法 (Brain Dump) 自動轉化為看板 Ticket，並自動拆解子任務與優先級。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="browser">
+            <h2>🌐 瀏覽器控制：視覺與操作</h2>
+            <div class="card">
+                <p>賦予 AI 像人類一樣「看見」並操作網頁的能力：</p>
+                <ul>
+                    <li><strong>Chrome Extension</strong>：開啟開發者模式，載入 Unpacked 套件。</li>
+                    <li><strong>Relay Mode</strong>：保持 ON 狀態，作為接管操作的通訊橋樑。</li>
+                    <li><strong>Brave Search API</strong>：強化全網實時情報蒐集能力。</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="footer">
+            <p>最後更新時間：2026-02-09 | 記錄者：阿蓋小弟 (Lobster 🦞)</p>
+            <p>OpenCRAW & G大 AI 戰略團隊 專屬資料</p>
+        </div>
+    </div>
+</body>
+</html>
