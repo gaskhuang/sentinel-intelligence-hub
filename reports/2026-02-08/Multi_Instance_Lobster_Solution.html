@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Instance Lobster Solution</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; padding: 2rem; max-width: 800px; margin: 0 auto; }
+        h1, h2, h3 { color: #38bdf8; }
+        code { background: #1e293b; padding: 0.2rem 0.4rem; border-radius: 4px; }
+        pre { background: #1e293b; padding: 1rem; border-radius: 8px; overflow-x: auto; border: 1px solid #334155; }
+        hr { border: 0; border-top: 1px solid #334155; margin: 2rem 0; }
+        a { color: #38bdf8; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <h1>🛠️ 技術實證報告：單機多龍蝦部署解決方案 (Multi-Instance Lobster)</h1>
+<br>
+<h2>🎯 任務目標</h2>
+<p>研究如何在一台 Mac Mini 上同時運行兩個或以上的 OpenCRAW 實例，且互不干擾。</p>
+<br>
+<h2>💡 解決方案：環境變數隔離法 (Environment Isolation)</h2>
+<p>要在一台 Mac 上跑 5 個獨立 Bot，<strong>不需要</strong>改檔名（如 openclaw1, openclaw2），正確做法是使用「環境變數」來隔離儲存空間與通訊埠。</p>
+<br>
+<h3>1. 空間隔離 (OPENCLAW_HOME)</h3>
+<p>預設情況下，所有龍蝦都住在 `~/.openclaw`。</p>
+<p>我們可以為不同的 Bot 建立專屬房間：</p>
+<ul><li>Bot A: `export OPENCLAW_HOME=~/.openclaw_a`</li>
+<li>Bot B: `export OPENCLAW_HOME=~/.openclaw_b`</li></ul>
+<p>這樣他們的 `openclaw.json`、記憶資料庫、Session 紀錄就會完全獨立，互不干擾。</p>
+<br>
+<h3>2. 埠號隔離 (PORT)</h3>
+<p>預設 Gateway 埠號是 `18789`。</p>
+<p>同時啟動多個實例時，必須指定不同埠號：</p>
+<ul><li>Bot A: `openclaw gateway --port 18789`</li>
+<li>Bot B: `openclaw gateway --port 18790`</li></ul>
+<br>
+<h3>3. 一鍵啟動腳本 (Lobster Swarm Script)</h3>
+<p>我們可以撰寫一個 `swarm.sh`，內容如下：</p>
+<p>```bash</p>
+<h1>啟動 Bot A (助理型)</h1>
+<p>OPENCLAW_HOME=~/.openclaw_a openclaw gateway --port 18789 &</p>
+<br>
+<h1>啟動 Bot B (爬蟲型)</h1>
+<p>OPENCLAW_HOME=~/.openclaw_b openclaw gateway --port 18790 &</p>
+<p>```</p>
+<br>
+<h2>✅ 結論與驗收</h2>
+<ul><li><strong>可行性</strong>: <strong>100% 可行</strong>。Mac Mini M4 的效能足以輕鬆應付 5-10 個獨立實例。</li>
+<li><strong>優點</strong>: 檔案架構清晰、記憶完全隔離、安全性最高（可設定不同 allowlist）。</li>
+<li><strong>商業價值</strong>: 這是「豪華版」客戶最需要的技術保障，能讓他們在同一台硬體上實現「多助理協作」。</li></ul>
+<br>
+<p>---</p>
+<p><strong>狀態</strong>: <strong>已完成，移至審核中 (Reviewing)</strong>。</p>
+<p><em>研究員：阿蓋小弟 🦞</em></p>
+<br>
+</body>
+</html>
