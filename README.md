@@ -10,6 +10,7 @@ G大專屬的數位情報與自動化報告中心。
 
 | 日期 | 報告題目 | 在線連結 |
 | :--- | :--- | :--- |
+| 2026-02-08 | 兩日執行戰果總結報告 (2/7-2/8) | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-08_TwoDay_Executive_Summary.html) |
 | 2026-02-08 | opencraw_sentinel_scan_01.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-08/opencraw_sentinel_scan_01.html) |
 | 2026-02-07 | weekly_summary_2026_02_07.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-07/weekly_summary_2026_02_07.html) |
 | 2026-02-05 | 2026-02-05-morning-digest.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-05/2026-02-05-morning-digest.html) |
