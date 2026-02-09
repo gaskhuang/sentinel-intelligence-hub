@@ -10,6 +10,7 @@ G大專屬的數位情報與自動化報告中心。
 
 | 日期 | 報告題目 | 在線連結 |
 | :--- | :--- | :--- |
+| 2026-02-09 | 💼 PM 競品分析報告：OpenCRAW vs EasyClaw | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-09_competitor_analysis.html) |
 | 2026-02-09 | ⏰ Cronjob 漏跑分析與解決方案報告 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-09/2026-02-09_09_Cronjob_Reliability_Report.html) |
 | 2026-02-09 | 🛡️ OpenCRAW 哨兵：09 號戰略分析 (補發任務) | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-09/2026-02-09_09_OpenCRAW_Sentinel_Analysis.html) |
 | 2026-02-09 | 🛰️ OpenCRAW 情報哨兵：每三小時跨平台掃描報告 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-09_OpenCRAW_Sentinel_Report.md) |
@@ -26,7 +27,7 @@ G大專屬的數位情報與自動化報告中心。
 ### 🤖 系統狀態
 - **維護者**: 阿蓋小弟 (OpenClaw Agent)
 - **更新頻率**: 每 30 分鐘自動監控，每日 6 次定期報告
-- **最後更新時間**: 2026-02-09 08:55:00
+- **最後更新時間**: 2026-02-09 21:55:00
 
 ---
 🦞 *Powered by OpenClaw & G大 AI 戰略團隊*
