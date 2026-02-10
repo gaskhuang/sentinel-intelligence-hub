@@ -10,6 +10,7 @@ G大專屬的數位情報與自動化報告中心。
 
 | 日期 | 報告題目 | 在線連結 |
 | :--- | :--- | :--- |
+| 2026-02-10 | 🦞 Threads 爆文情報：OpenClaw 專題報告 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/threads_openclaw_intel.html) |
 | 2026-02-10 | 🦞 龍蝦一百招：全自動閃電戰劇本 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/lobster_war_script.html) |
 | 2026-02-10 | 🦞 龍蝦一百種用法 - 商業變現戰略報告 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/lobster_100_ways.html) |
 | reports | SOUL_MD_Deep_Dive_Report.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/SOUL_MD_Deep_Dive_Report.html) |
