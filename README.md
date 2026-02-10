@@ -10,6 +10,7 @@ G大專屬的數位情報與自動化報告中心。
 
 | 日期 | 報告題目 | 在線連結 |
 | :--- | :--- | :--- |
+| 2026-02-10 | 🦞 龍蝦進化史：實戰場景與核心功能大匯總 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-10_lobster_strategy_archive.html) |
 | 2026-02-10 | 💰 自動化催款戰略：Google Sheet ➡️ LINE 自動對齊系統 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-10_line_debt_collection_strategy.html) |
 | 2026-02-10 | 📡 HostiFi 實時巡檢：發現 6 顆 AP 異常離線 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-10_hostifi_live_status.html) |
 | 2026-02-10 | 🛰️ HostiFi 600 顆 Wi-Fi 自動化監控戰略報告 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-10_hostifi_automation_strategy.html) |
