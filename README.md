@@ -10,6 +10,7 @@ G大專屬的數位情報與自動化報告中心。
 
 | 日期 | 報告題目 | 在線連結 |
 | :--- | :--- | :--- |
+| 2026-02-10 | 🦞 龍蝦一百種用法 - 商業變現戰略報告 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/lobster_100_ways.html) |
 | reports | SOUL_MD_Deep_Dive_Report.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/SOUL_MD_Deep_Dive_Report.html) |
 | reports | LOBSTER_INSTALLATION_MANUAL.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/LOBSTER_INSTALLATION_MANUAL.html) |
 | reports | 2026-02-10_lobster_strategy_archive.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-10_lobster_strategy_archive.html) |
