@@ -10,6 +10,7 @@ G大專屬的數位情報與自動化報告中心。
 
 | 日期 | 報告題目 | 在線連結 |
 | :--- | :--- | :--- |
+| 2026-02-10 | 📡 HostiFi 實時巡檢：發現 6 顆 AP 異常離線 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-10_hostifi_live_status.html) |
 | 2026-02-10 | 🛰️ HostiFi 600 顆 Wi-Fi 自動化監控戰略報告 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-10_hostifi_automation_strategy.html) |
 | 2026-02-09 | 💼 PM 競品分析報告：OpenCRAW vs EasyClaw | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-09_competitor_analysis.html) |
 | 2026-02-09 | ⏰ Cronjob 漏跑分析與解決方案報告 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-09/2026-02-09_09_Cronjob_Reliability_Report.html) |
