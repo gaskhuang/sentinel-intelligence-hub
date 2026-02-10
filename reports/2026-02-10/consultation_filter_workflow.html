@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>戰略情資報告 | 龍蝦過濾器：終結「免費諮詢與無效到府」的完整流程</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #050505; color: #e0e0e0; }
+        .card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1.5rem; margin-bottom: 2rem; }
+        .highlight { color: #ff3e3e; }
+        .step-num { width: 40px; height: 40px; background: #ff3e3e; color: white; border-radius: 50%; display: flex; items-center; justify-content: center; font-weight: 900; margin-right: 1rem; flex-shrink: 0; }
+        .flow-container { border-left: 2px dashed rgba(255, 62, 62, 0.3); margin-left: 20px; padding-left: 30px; }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+    <div class="max-w-5xl mx-auto">
+        <header class="mb-12 border-b border-white/10 pb-8">
+            <div class="flex justify-between items-center mb-4">
+                <span class="bg-red-600 px-3 py-1 rounded-full text-[10px] font-black uppercase">Operation Efficiency</span>
+                <span class="text-gray-500 text-sm">2026-02-10</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-black mb-4">龍蝦過濾器：拒絕「免錢勞動」</h1>
+            <p class="text-xl text-gray-400">專案代號：<span class="highlight">Lobster-Gatekeeper (龍蝦守門員)</span></p>
+        </header>
+
+        <!-- The Problem -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-black mb-6 flex items-center"><span class="w-2 h-8 bg-red-600 mr-4"></span>現狀痛點：諮詢黑洞</h2>
+            <div class="card p-8 bg-red-600/5 border-red-600/20">
+                <p class="text-gray-300 leading-relaxed">
+                    諮詢者不斷消耗 G大 的時間與體力，卻無實質轉化。甚至需要「到府服務」卻不願支付合理的技術建置費。這不僅是錢的問題，更是在消耗最寶貴的「戰略思考時間」。
+                </p>
+            </div>
+        </section>
+
+        <!-- The Workflow -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-black mb-8 flex items-center"><span class="w-2 h-8 bg-blue-600 mr-4"></span>終極解決流程 (The Filter Flow)</h2>
+            
+            <div class="flow-container">
+                <!-- Step 1 -->
+                <div class="flex items-start mb-12 relative">
+                    <div class="step-num">1</div>
+                    <div>
+                        <h3 class="text-xl font-black text-white mb-2">AI 數位前台 (Triage)</h3>
+                        <p class="text-gray-400 text-sm mb-4">所有諮詢優先由「阿蓋小弟」在 LINE/TG 處理。G大 保持靜默。</p>
+                        <div class="bg-white/5 p-4 rounded-xl text-xs italic">
+                            阿蓋話術：「G大 目前正忙於豪華版客戶的 HA 部署。請先提供您的環境資訊，我先為您做初步診斷。」
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex items-start mb-12 relative">
+                    <div class="step-num">2</div>
+                    <div>
+                        <h3 class="text-xl font-black text-white mb-2">需求自動盤點 (Audit)</h3>
+                        <p class="text-gray-400 text-sm mb-4">阿蓋要求客戶提供：硬體規格 (M1/M2)、API 帳號準備情況、要解決的場景。</p>
+                        <p class="text-red-400 text-xs font-bold">● 若客戶提供不全，阿蓋持續追蹤，不驚動 G大。</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex items-start mb-12 relative">
+                    <div class="step-num">3</div>
+                    <div>
+                        <h3 class="text-xl font-black text-white mb-2">到府前置門檻 (Paid On-Site)</h3>
+                        <p class="text-gray-400 text-sm mb-4">若需到府，阿蓋自動發送「預付訂金連結」。</p>
+                        <div class="bg-green-600/10 p-4 rounded-xl text-xs border border-green-600/20">
+                            <strong>規則：</strong>到府勘查/安裝需預付 NT$2,000 訂金，若成交則全額折抵建置費。未付款前，不排入行程。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex items-start mb-12 relative">
+                    <div class="step-num">4</div>
+                    <div>
+                        <h3 class="text-xl font-black text-white mb-2">知識轉化 (Conversion)</h3>
+                        <p class="text-gray-400 text-sm mb-4">若客戶聊完後不買單，阿蓋啟動 `/convert` 指令。</p>
+                        <p class="text-gray-500 text-xs italic">將剛才的溝通過程轉化為官網案例文章。讓「免費客戶」成為您的「內容小編」。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Digital Twin Strategy -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-black mb-6 flex items-center"><span class="w-2 h-8 bg-purple-600 mr-4"></span>數位分身：讓 AI 替您到府</h2>
+            <div class="card p-8">
+                <p class="text-gray-400 text-sm mb-6">
+                    許多到府需求其實可以透過 **遠端控制 (AnyDesk/RustDesk)** 完成。阿蓋會主動說服客戶：
+                </p>
+                <ul class="list-disc list-inside text-sm text-gray-400 space-y-3">
+                    <li>「為節省您的等待時間，G大 建議先由我遠端進入環境檢查。」</li>
+                    <li>「遠端部署可立馬執行，且建置費有優惠。」</li>
+                    <li>「只有當遠端無法解決時，我們才出動到府戰隊。」</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Final Action -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-black mb-6 text-red-500 uppercase italic">戰勤官執行建議</h2>
+            <div class="card p-8 bg-red-600/5 border-red-600/20">
+                <p class="text-lg font-bold text-white mb-4">「您的時間價值 $30,000/hr，不應浪費在無效諮詢。」</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-white/5 rounded-xl border border-white/5 text-xs text-gray-400">
+                        <span class="text-red-500 font-bold mr-2">[!]</span> 立即在 LINE 自動回覆中加入「需求表單」連結。
+                    </div>
+                    <div class="p-4 bg-white/5 rounded-xl border border-white/5 text-xs text-gray-400">
+                        <span class="text-red-500 font-bold mr-2">[!]</span> 授權我對所有「免費者」執行 `/convert`，榨乾他們的剩餘價值。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-600 text-[10px] uppercase tracking-widest pb-12">
+            Generated by 萬能戰勤官 | G大萬能戰情室
+        </footer>
+    </div>
+</body>
+</html>
