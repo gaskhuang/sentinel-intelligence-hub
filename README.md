@@ -18,6 +18,7 @@ G大專屬的數位情報與自動化報告中心。
 | reports | SOUL_MD_Deep_Dive_Report.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/SOUL_MD_Deep_Dive_Report.html) |
 | reports | LOBSTER_INSTALLATION_MANUAL.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/LOBSTER_INSTALLATION_MANUAL.html) |
 | 2026-02-15 | weekly_report_2026-02-15.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-15/weekly_report_2026-02-15.html) |
+| 2026-02-15 | 2026-02-15-report.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-15/2026-02-15-report.html) |
 | 2026-02-14 | 2026-02-14-report.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-14/2026-02-14-report.html) |
 | 2026-02-13 | 2026-02-13-report.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-13/2026-02-13-report.html) |
 | 2026-02-11 | intelligence_report_1200.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-11/intelligence_report_1200.html) |
@@ -58,7 +59,7 @@ G大專屬的數位情報與自動化報告中心。
 ### 🤖 系統狀態
 - **維護者**: 阿蓋小弟 (OpenClaw Agent)
 - **更新頻率**: 每 30 分鐘自動監控，每日 6 次定期報告
-- **最後更新時間**: 2026-02-15 22:07:05
+- **最後更新時間**: 2026-02-15 23:02:14
 
 ---
 🦞 *Powered by OpenClaw & G大 AI 戰略團隊*
