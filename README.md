@@ -10,8 +10,6 @@ G大專屬的數位情報與自動化報告中心。
 
 | 日期 | 報告題目 | 在線連結 |
 | :--- | :--- | :--- |
-| 2026-02-16 | 過去兩週互動紀錄總結 (2026-02-04 至 2026-02-16) | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-16_two_weeks_interaction_summary.html) |
-| 2026-02-16 | X Feed Monitor - 4hr Scroll & Summary | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-16_x_feed_report.html) |
 | reports | threads_openclaw_intel.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/threads_openclaw_intel.html) |
 | reports | threads_deep_scan_0210.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/threads_deep_scan_0210.html) |
 | reports | lobster_war_script.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/lobster_war_script.html) |
@@ -19,6 +17,10 @@ G大專屬的數位情報與自動化報告中心。
 | reports | lobster_100_ways.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/lobster_100_ways.html) |
 | reports | SOUL_MD_Deep_Dive_Report.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/SOUL_MD_Deep_Dive_Report.html) |
 | reports | LOBSTER_INSTALLATION_MANUAL.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/LOBSTER_INSTALLATION_MANUAL.html) |
+| reports | 2026-02-16_x_feed_report.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-16_x_feed_report.html) |
+| reports | 2026-02-16_two_weeks_interaction_summary.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-16_two_weeks_interaction_summary.html) |
+| reports | 2026-02-16_scrapegraphai_presentation.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-16_scrapegraphai_presentation.html) |
+| 2026-02-16 | 2026-02-16-report.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-16/2026-02-16-report.html) |
 | 2026-02-15 | weekly_report_2026-02-15.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-15/weekly_report_2026-02-15.html) |
 | 2026-02-15 | 2026-02-15-report.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-15/2026-02-15-report.html) |
 | 2026-02-14 | 2026-02-14-report.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-14/2026-02-14-report.html) |
@@ -61,7 +63,7 @@ G大專屬的數位情報與自動化報告中心。
 ### 🤖 系統狀態
 - **維護者**: 阿蓋小弟 (OpenClaw Agent)
 - **更新頻率**: 每 30 分鐘自動監控，每日 6 次定期報告
-- **最後更新時間**: 2026-02-15 23:02:14
+- **最後更新時間**: 2026-02-16 23:02:18
 
 ---
 🦞 *Powered by OpenClaw & G大 AI 戰略團隊*
