@@ -10,6 +10,7 @@ G大專屬的數位情報與自動化報告中心。
 
 | 日期 | 報告題目 | 在線連結 |
 | :--- | :--- | :--- |
+| 2026-02-16 | 過去兩週互動紀錄總結 (2026-02-04 至 2026-02-16) | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-16_two_weeks_interaction_summary.html) |
 | 2026-02-16 | X Feed Monitor - 4hr Scroll & Summary | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-16_x_feed_report.html) |
 | reports | threads_openclaw_intel.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/threads_openclaw_intel.html) |
 | reports | threads_deep_scan_0210.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/threads_deep_scan_0210.html) |
