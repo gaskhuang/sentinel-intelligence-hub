@@ -10,6 +10,7 @@ G大專屬的數位情報與自動化報告中心。
 
 | 日期 | 報告題目 | 在線連結 |
 | :--- | :--- | :--- |
+| 2026-02-17 | 2026-02-17_SecondBrainDistilled.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-17_SecondBrainDistilled.html) |
 | reports | threads_openclaw_intel.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/threads_openclaw_intel.html) |
 | reports | threads_deep_scan_0210.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/threads_deep_scan_0210.html) |
 | reports | lobster_war_script.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/lobster_war_script.html) |
