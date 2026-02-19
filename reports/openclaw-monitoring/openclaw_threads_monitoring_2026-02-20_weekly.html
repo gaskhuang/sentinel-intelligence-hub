@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OpenClaw Threads 本週監控報告（2026-02-20）</title>
+  <style>
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:#0b1020;color:#e8ecf8;line-height:1.6;margin:0}
+    .wrap{max-width:1040px;margin:0 auto;padding:28px}
+    .card{background:#131a33;border:1px solid #2a3766;border-radius:14px;padding:18px 20px;margin:14px 0}
+    h1,h2{margin:.2em 0 .4em} .muted{color:#9fb0dd}
+    .kpi{display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:12px}
+    .kpi .item{background:#0f1530;border:1px solid #24315b;border-radius:12px;padding:12px}
+    .num{font-size:28px;font-weight:700;color:#7fe3c5}
+    table{width:100%;border-collapse:collapse} th,td{border-bottom:1px solid #2a3766;padding:10px;text-align:left}
+    .tag{display:inline-block;padding:2px 8px;border-radius:999px;background:#20305f;color:#cde0ff;font-size:12px;margin-right:6px}
+    code{background:#1a254a;padding:2px 6px;border-radius:6px}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🧵 OpenClaw Threads 本週討論監控</h1>
+  <div class="muted">監控期間：2026-02-17 00:00 ～ 2026-02-20 23:59（GMT+8）</div>
+
+  <div class="card">
+    <h2>執行摘要</h2>
+    <div class="kpi">
+      <div class="item"><div class="muted">總貼文數</div><div class="num">0</div></div>
+      <div class="item"><div class="muted">熱門話題</div><div class="num">N/A</div></div>
+      <div class="item"><div class="muted">關鍵意見領袖</div><div class="num">N/A</div></div>
+      <div class="item"><div class="muted">情緒樣本數</div><div class="num">0</div></div>
+    </div>
+    <p>本次在可驗證資料來源中，未取得符合條件之 Threads 公開貼文樣本。故本報告以「採集可行性與風險狀態」為主，避免產生臆測內容。</p>
+  </div>
+
+  <div class="card">
+    <h2>採集範圍與關鍵字</h2>
+    <p>
+      <span class="tag">OpenClaw</span>
+      <span class="tag">openclaw</span>
+      <span class="tag">@openclaw</span>
+      <span class="tag">#OpenClaw</span>
+    </p>
+    <ul>
+      <li>平台：Threads</li>
+      <li>資料欄位目標：貼文內容、作者資訊、時間戳、按讚/回覆/轉發、貼文連結</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>完整貼文清單</h2>
+    <table>
+      <thead><tr><th>時間</th><th>作者</th><th>內容</th><th>互動</th><th>連結</th></tr></thead>
+      <tbody>
+        <tr><td colspan="5" class="muted">本期無可驗證樣本（0 筆）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>情緒分析</h2>
+    <ul>
+      <li>正面：0</li>
+      <li>中性：0</li>
+      <li>負面：0</li>
+    </ul>
+    <p class="muted">因樣本數為 0，無法產生具統計意義的情緒分布。</p>
+  </div>
+
+  <div class="card">
+    <h2>趨勢洞察與建議</h2>
+    <ol>
+      <li>需先恢復可用的登入態瀏覽器自動化（CDP 可連線且可讀取 Threads 動態搜尋頁）。</li>
+      <li>建議建立雙通道採集：<code>Threads 站內搜尋</code> + <code>搜尋引擎反查</code>，交叉去重，降低漏抓率。</li>
+      <li>將每次抓取結果落地 JSON（含抓取時間與來源），並保留重跑能力與差異比對。</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>與 X 平台對比（若有）</h2>
+    <p>目前僅有既有 X 平台報告可參照；Threads 本期樣本為 0，故無法進行同維度量化比較。建議待 Threads 採集通道恢復後，再補做跨平台比較（聲量、情緒、KOL、時間分布）。</p>
+  </div>
+
+  <div class="muted">產出時間：2026-02-20 03:55 GMT+8</div>
+</div>
+</body>
+</html>
