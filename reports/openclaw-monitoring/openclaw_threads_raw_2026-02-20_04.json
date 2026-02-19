@@ -1,0 +1,18 @@
+{
+  "task": "OpenClaw Threads 即時監控",
+  "generated_at": "2026-02-20T04:23:01.968098+08:00",
+  "keywords": [
+    "OpenClaw",
+    "openclaw",
+    "@openclaw",
+    "#OpenClaw"
+  ],
+  "collection_runs": [],
+  "total_collected_before_filter": 0,
+  "total_posts": 0,
+  "posts": [],
+  "technical_limits": [
+    "CDP 連線失敗或瀏覽器拒絕: BrowserType.connect_over_cdp: Unexpected status 401 when connecting to http://127.0.0.1:18792/json/version/.\nThis does not look like a DevTools server, try connecting via ws://.\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:18792\n"
+  ],
+  "coverage_note": "CDP連線 18792 + Threads 搜尋 + 滾動"
+}
