@@ -68,6 +68,7 @@ G大專屬的數位情報與自動化報告中心。
 | 2026-02-08 | Builder_Ecosystem_Strategy.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-08/Builder_Ecosystem_Strategy.html) |
 | 2026-02-07 | weekly_summary_2026_02_07.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-07/weekly_summary_2026_02_07.html) |
 | 2026-02-05 | 2026-02-05-morning-digest.html | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-05/2026-02-05-morning-digest.html) |
+| 2026-02-22 | 全系統狀態 GitHub 同步協議 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-22/github_status_sync_protocol.html) |
 
 ---
 ### 🤖 系統狀態
