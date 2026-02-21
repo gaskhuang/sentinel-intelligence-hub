@@ -71,6 +71,7 @@ G大專屬的數位情報與自動化報告中心。
 | 2026-02-22 | 全系統狀態 GitHub 同步協議 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-22/github_status_sync_protocol.html) |
 | 2026-02-22 | Config 修改安全原則 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-22/config_modification_safety.html) |
 | 2026-02-22 | NotebookLM 指令協議 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-22/notebooklm_commands_protocol.html) |
+| 2026-02-22 | OpenCRAW 每日戰情報告 03:07 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-22/openclaw_daily_brief_0307.html) |
 
 ---
 ### 🤖 系統狀態
