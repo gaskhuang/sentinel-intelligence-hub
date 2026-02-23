@@ -10,6 +10,7 @@ G大專屬的數位情報與自動化報告中心。
 
 | 日期 | 報告題目 | 在線連結 |
 | :--- | :--- | :--- |
+| 2026-02-24 | 每日覆盤報告 - 五大痛點最佳解 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-24/nightly_routine_report.html) |
 | 2026-02-22 | 七王模型重組 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-22/seven_kings_reorganization.html) |
 | 2026-02-20 | OpenClaw X 平台監控報告（12，Top，最近6小時） | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/openclaw-monitoring/openclaw_x_monitoring_2026-02-20_12.html) |
 | 2026-02-20 | OpenClaw X 平台監控報告（06，Top，最近6小時） | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/openclaw-monitoring/openclaw_x_monitoring_2026-02-20_06.html) |
