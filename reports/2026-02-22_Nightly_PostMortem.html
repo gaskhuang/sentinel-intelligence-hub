@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日覆盤報告 - 2026-02-22</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eaeaea;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid #e94560;
+            margin-bottom: 30px;
+        }
+        h1 { color: #e94560; font-size: 2rem; margin-bottom: 10px; }
+        .date { color: #a0a0a0; font-size: 1rem; }
+        .section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid #e94560;
+        }
+        h2 { color: #ffd700; margin-bottom: 15px; font-size: 1.3rem; }
+        h3 { color: #4fbdba; margin: 20px 0 10px 0; font-size: 1.1rem; }
+        .tag {
+            display: inline-block;
+            background: #e94560;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+        }
+        .tag-done { background: #2ecc71; }
+        .tag-progress { background: #f39c12; }
+        .tag-pending { background: #95a5a6; }
+        ul { margin-left: 20px; }
+        li { margin-bottom: 8px; }
+        a { color: #4fbdba; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .highlight-box {
+            background: rgba(233, 69, 96, 0.15);
+            border: 1px solid #e94560;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .score { font-size: 1.5rem; font-weight: bold; color: #ffd700; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        th { color: #4fbdba; }
+        .recommendation {
+            background: rgba(79, 189, 186, 0.1);
+            border-left: 3px solid #4fbdba;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.85rem;
+        }
+        .next-step {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px dashed #ffd700;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🦞 每日覆盤報告</h1>
+            <div class="date">2026年2月22日 (Asia/Taipei)</div>
+            <div style="margin-top: 10px;">
+                <span class="tag tag-done">Cron 執行成功</span>
+                <span class="tag">自動化覆盤</span>
+            </div>
+        </header>
+
+        <!-- 今日成果總結 -->
+        <div class="section">
+            <h2>📋 一、今日成果總結</h2>
+            
+            <h3>🎯 關鍵決策固化</h3>
+            <ul>
+                <li><strong>美安比價搜尋規則確立</strong>：外站比價必須使用「品牌名稱 + 商品名/規格」格式，禁止使用純品類詞（如：「魷魚絲」→ 錯誤，「一菋坊 魷魚絲 150g」→ 正確）</li>
+                <li><strong>蝦皮比價規範</strong>：遇登入牆/賣場封鎖需明確標註，不得混入正常價格比較</li>
+                <li><strong>排程策略</strong>：G大 明確指示「先不要設定排程」，優先完成功能本體開發</li>
+            </ul>
+
+            <h3>🧠 2026 公司策略輸入</h3>
+            <div class="highlight-box">
+                <p><strong>槓桿階段轉移</strong>：從「人力槓桿 + 部分資本槓桿」進入「代碼槓桿」階段</p>
+                <ul style="margin-top: 10px;">
+                    <li>內勤作業線上課程化（ERP 操作等）</li>
+                    <li>70% 自動化工作流目標（取代重複性工作）</li>
+                    <li>SaaS 應用專案實戰累積（M365 / n8n / RPA 年約方案）</li>
+                </ul>
+            </div>
+
+            <h3>🔧 工具正名</h3>
+            <p>語音轉文字工具統一稱為 <strong>Whisper</strong>（先前 Cheaster 為口誤）</p>
+        </div>
+
+        <!-- 全網解答搜尋 -->
+        <div class="section">
+            <h2>🌐 二、全網最佳解搜尋結果</h2>
+            
+            <h3>📝 1. OCR 報表解析方案（BNI 華資專案）</h3>
+            <table>
+                <tr>
+                    <th>方案</th>
+                    <th>GitHub</th>
+                    <th>推薦度</th>
+                </tr>
+                <tr>
+                    <td><strong>PaddleOCR</strong></td>
+                    <td><a href="https://github.com/PaddlePaddle/PaddleOCR" target="_blank">PaddlePaddle/PaddleOCR</a></td>
+                    <td class="score">⭐⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>Marker</td>
+                    <td><a href="https://github.com/datalab-to/marker" target="_blank">datalab-to/marker</a></td>
+                    <td>⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>Nanonets-OCR</td>
+                    <td><a href="https://github.com/NanoNets/docstrange" target="_blank">NanoNets/docstrange</a></td>
+                    <td>⭐⭐⭐</td>
+                </tr>
+            </table>
+            <div class="recommendation">
+                <strong>🏆 推薦架構：</strong>PaddleOCR-VL-1.5 + Gemini Flash 混合<br>
+                優勢：中文表格識別達 SOTA 94.5% 精度，支援跨頁表格合併，適合 BNI 繁體報表
+            </div>
+
+            <h3>🎙️ 2. 連續免提語音方案（開車場景）</h3>
+            <table>
+                <tr>
+                    <th>方案</th>
+                    <th>GitHub</th>
+                    <th>推薦度</th>
+                </tr>
+                <tr>
+                    <td><strong>Pipecat</strong></td>
+                    <td><a href="https://github.com/pipecat-ai/pipecat" target="_blank">pipecat-ai/pipecat</a></td>
+                    <td class="score">⭐⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>LiveKit Agents</td>
+                    <td><a href="https://github.com/livekit/agents" target="_blank">livekit/agents</a></td>
+                    <td>⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>TEN Framework</td>
+                    <td><a href="https://github.com/TEN-framework/ten-framework" target="_blank">TEN-framework/ten-framework</a></td>
+                    <td>⭐⭐⭐⭐</td>
+                </tr>
+            </table>
+            <div class="recommendation">
+                <strong>🏆 推薦方案：</strong>Pipecat + iOS Swift SDK<br>
+                優勢：原生 Apple 生態支援、車載藍牙整合、離線 Whisper STT 能力
+            </div>
+
+            <h3>🖥️ 3. 單機多實例 HA 部署</h3>
+            <table>
+                <tr>
+                    <th>方案</th>
+                    <th>GitHub</th>
+                    <th>推薦度</th>
+                </tr>
+                <tr>
+                    <td><strong>Docker Compose + Nginx</strong></td>
+                    <td><a href="https://github.com/SolaceLabs/solace-ha-docker-compose" target="_blank">範例參考</a></td>
+                    <td class="score">⭐⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>PM2</td>
+                    <td><a href="https://github.com/Unitech/PM2" target="_blank">Unitech/PM2</a></td>
+                    <td>⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>PMDaemon</td>
+                    <td><a href="https://github.com/entrepeneur4lyf/pmdaemon" target="_blank">entrepeneur4lyf/pmdaemon</a></td>
+                    <td>⭐⭐⭐⭐</td>
+                </tr>
+            </table>
+            <div class="recommendation">
+                <strong>🏆 推薦方案：</strong>Docker Compose + Nginx Proxy<br>
+                優勢：Mac Mini 原生支援、資源隔離、健康檢查自動重啟、熱備援機制
+            </div>
+
+            <h3>📡 4. 社交媒體監控方案（X/Reddit/Threads）</h3>
+            <table>
+                <tr>
+                    <th>方案</th>
+                    <th>GitHub</th>
+                    <th>推薦度</th>
+                </tr>
+                <tr>
+                    <td><strong>twikit</strong> (X/Twitter)</td>
+                    <td><a href="https://github.com/d60/twikit" target="_blank">d60/twikit</a></td>
+                    <td class="score">⭐⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td><strong>MultiNotify</strong> (Reddit)</td>
+                    <td><a href="https://github.com/ethanocurtis/MultiNotify" target="_blank">ethanocurtis/MultiNotify</a></td>
+                    <td>⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>Postiz</td>
+                    <td><a href="https://github.com/gitroomhq/postiz-app" target="_blank">gitroomhq/postiz-app</a></td>
+                    <td>⭐⭐⭐⭐</td>
+                </tr>
+            </table>
+            <div class="recommendation">
+                <strong>🏆 推薦架構：</strong>n8n + twikit + MultiNotify<br>
+                優勢：每 3 小時 Cron 觸發、免費無 API Key、支援 Discord 通知推送
+            </div>
+        </div>
+
+        <!-- 任務評分與推進 -->
+        <div class="section">
+            <h2>📊 三、任務評分與推進</h2>
+            
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>分數</th>
+                    <th>狀態</th>
+                    <th>下一步</th>
+                </tr>
+                <tr>
+                    <td>BNI 華資數字追蹤</td>
+                    <td>8/10</td>
+                    <td><span class="tag tag-progress">處理中</span></td>
+                    <td>實作 PaddleOCR 腳本</td>
+                </tr>
+                <tr>
+                    <td>案例自動化撰寫系統</td>
+                    <td>9/10</td>
+                    <td><span class="tag tag-progress">處理中</span></td>
+                    <td>建立 NAS 目錄監測器</td>
+                </tr>
+                <tr>
+                    <td>連續免提語音交互</td>
+                    <td>10/10</td>
+                    <td><span class="tag tag-progress">處理中</span></td>
+                    <td>測試 Pipecat iOS SDK</td>
+                </tr>
+                <tr>
+                    <td>雙龍蝦 HA 部署</td>
+                    <td>7/10</td>
+                    <td><span class="tag tag-progress">執行中</span></td>
+                    <td>Docker Compose 配置</td>
+                </tr>
+                <tr>
+                    <td>OpenCRAW 3hr 情報哨兵</td>
+                    <td>8/10</td>
+                    <td><span class="tag tag-done">全自動執行</span></td>
+                    <td>已排程，觀察穩定性</td>
+                </tr>
+                <tr>
+                    <td>GSC 報告自動化</td>
+                    <td>6/10</td>
+                    <td><span class="tag tag-pending">等待範本</span></td>
+                    <td>G大 提供 CSV 範本</td>
+                </tr>
+            </table>
+
+            <div class="next-step">
+                <h3>🚀 優先執行項目（本週）</h3>
+                <ol>
+                    <li><strong>連續免提語音</strong>：Pipecat 快速原型（最高分 10/10，商業價值最高）</li>
+                    <li><strong>案例自動化系統</strong>：NAS → GDrive → WordPress 自動化鏈路</li>
+                    <li><strong>雙龍蝦 HA</strong>：Docker Compose 配置完成，確保高可用性</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Git 同步狀態 -->
+        <div class="section">
+            <h2>💾 四、工作區同步狀態</h2>
+            
+            <h3>📝 主要變更檔案</h3>
+            <ul>
+                <li>✅ <code>MEMORY.md</code> - 長期記憶更新</li>
+                <li>✅ <code>memory/lobster_second_brain.md</code> - 2026 策略輸入</li>
+                <li>✅ <code>memory/2026-02-22.md</code> - 今日對話記錄</li>
+                <li>✅ <code>sentinel-intelligence-hub/reports/2026-02-22_Nightly_PostMortem.html</code> - 本報告</li>
+                <li>✅ <code>memory/TASK_STATE.json</code> - 任務狀態機更新</li>
+            </ul>
+
+            <h3>🔗 提交資訊</h3>
+            <div class="highlight-box">
+                <p><strong>Commit:</strong> <code>nightly: 2026-02-22 覆盤報告 + 全網最佳解搜尋結果</code></p>
+                <p><strong>Branch:</strong> main</p>
+                <p><strong>Sync Time:</strong> 2026-02-23 00:15 (Asia/Taipei)</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>🦞 OpenCRAW Nightly Routine | 自動產生於 2026-02-23 00:15</p>
+            <p>報告存放：<code>sentinel-intelligence-hub/reports/2026-02-22_Nightly_PostMortem.html</code></p>
+        </footer>
+    </div>
+</body>
+</html>
