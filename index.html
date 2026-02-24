@@ -2,91 +2,25 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <title>Sentinel Intelligence Hub | 龍蝦情報戰略中心</title>
+    <title>Sentinel Intelligence Hub</title>
     <style>
-        body { font-family: 'Inter', -apple-system, sans-serif; background: #0b0f1a; color: white; padding: 40px; line-height: 1.6; max-width: 1000px; margin: 0 auto; }
-        h1 { color: #38bdf8; border-bottom: 2px solid #1e293b; padding-bottom: 15px; font-size: 2.5rem; letter-spacing: -1px; }
-        h2 { color: #94a3b8; margin-top: 40px; font-size: 1.5rem; display: flex; align-items: center; }
-        h2::after { content: ""; flex: 1; height: 1px; background: #334155; margin-left: 15px; }
-        .list { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        @media (max-width: 768px) { .list { grid-template-columns: 1fr; } }
-        .item { background: #1e293b; padding: 20px; border-radius: 12px; border: 1px solid #334155; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
-        .item:hover { transform: translateY(-5px); border-color: #38bdf8; background: #243147; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3); }
-        .item::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #38bdf8; opacity: 0; transition: opacity 0.3s; }
-        .item:hover::before { opacity: 1; }
-        a { color: #f8fafc; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
-        .dashboard-btn { display: inline-flex; align-items: center; background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; padding: 12px 24px; border-radius: 8px; margin-bottom: 30px; font-weight: bold; text-decoration: none; transition: transform 0.2s; box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39); }
-        .dashboard-btn:hover { transform: scale(1.02); }
-        .tag { font-size: 0.65rem; background: #334155; color: #cbd5e1; padding: 3px 8px; border-radius: 20px; margin-right: 8px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; width: fit-content; }
-        .tag-strat { background: #0369a1; color: #e0f2fe; }
-        .tag-tech { background: #1e40af; color: #dbeafe; }
-        .tag-intel { background: #3730a3; color: #e0e7ff; }
-        .new-tag { background: #ef4444; color: white; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
-        .date { font-size: 0.8rem; color: #64748b; margin-top: 10px; }
-        .footer { margin-top: 80px; padding-top: 20px; border-top: 1px solid #1e293b; color: #475569; font-size: 0.85rem; display: flex; justify-content: space-between; }
+        body { font-family: -apple-system, sans-serif; background: #0b0f1a; color: white; padding: 50px; line-height: 1.6; }
+        h1 { color: #38bdf8; border-bottom: 1px solid #334155; padding-bottom: 10px; }
+        .list { margin-top: 20px; }
+        .item { background: #1e293b; margin-bottom: 10px; padding: 15px; border-radius: 8px; border: 1px solid #334155; }
+        a { color: #38bdf8; text-decoration: none; font-weight: bold; }
+        .dashboard-btn { display: inline-block; background: #6366f1; color: white; padding: 10px 20px; border-radius: 5px; margin-bottom: 30px; }
     </style>
 </head>
 <body>
     <h1>🛰️ Sentinel Intelligence Hub</h1>
-    <a href="dashboard/index.html" class="dashboard-btn">🖥️ 進入全域指揮中心系統</a>
-    
-    <h2>🔥 本週重點戰略報告 (Key Strategy)</h2>
+    <a href="dashboard/index.html" class="dashboard-btn">🖥️ 開啟數位指揮中心</a>
+    <h2>📋 歷史情報存檔</h2>
     <div class="list">
-        <div class='item'>
-            <span class="tag tag-strat new-tag">STRATEGIC DEEP DIVE</span>
-            <a href='reports/2026-02-08/Global_Lobster_Install_Market_DeepDive.html'>🦞 全球龍蝦裝機市場深度調研與增長潛力報告</a>
-            <div class="date">📅 2026-02-08 | Priority: High</div>
-        </div>
-        <div class='item'>
-            <span class="tag tag-strat new-tag">STRIKE PLAN</span>
-            <a href='reports/2026-02-08/Lobster_Ad_Strike_Plan.html'>🎯 龍蝦廣告突擊行動計畫書：精準滲透與轉化策略</a>
-            <div class="date">📅 2026-02-08 | Operation: Red Sky</div>
-        </div>
-        <div class='item'>
-            <span class="tag tag-strat">COMPETITIVE INTEL</span>
-            <a href='reports/2026-02-08/Global_Competitor_Analysis_v1.html'>⚔️ 全球競爭對手態勢分析：破譯敵方分佈與技術壁壘</a>
-            <div class="date">📅 2026-02-08 | Intelligence v1.0</div>
-        </div>
-        <div class='item'>
-            <span class="tag tag-tech">SOLUTION ARCH</span>
-            <a href='reports/2026-02-08/Multi_Instance_Lobster_Solution.html'>🔗 多實例龍蝦協同解決方案：規模化部署技術藍圖</a>
-            <div class="date">📅 2026-02-08 | Technical Doc</div>
-        </div>
-        <div class='item'>
-            <span class="tag tag-strat">ECOSYSTEM</span>
-            <a href='reports/2026-02-08/Builder_Ecosystem_Strategy.html'>🏗️ 建設者生態系擴張策略：打造可持續發展的技術社群</a>
-            <div class="date">📅 2026-02-08 | Growth Strategy</div>
-        </div>
-        <div class='item'>
-            <span class="tag tag-strat">GMI ANALYSIS</span>
-            <a href='reports/2026-02-08/GMI_Strategy_Analysis.html'>📊 GMI 全球市場情報戰略分析：跨國佈局與合規性評估</a>
-            <div class="date">📅 2026-02-08 | GMI Internal</div>
-        </div>
+        <div class='item'>📅 reports - <a href='reports/threads_openclaw_intel.html'>threads_openclaw_intel.html</a></div><div class='item'>📅 reports - <a href='reports/threads_deep_scan_0210.html'>threads_deep_scan_0210.html</a></div><div class='item'>📅 reports - <a href='reports/lobster_war_script.html'>lobster_war_script.html</a></div><div class='item'>📅 reports - <a href='reports/lobster_25_commands.html'>lobster_25_commands.html</a></div><div class='item'>📅 reports - <a href='reports/lobster_100_ways.html'>lobster_100_ways.html</a></div><div class='item'>📅 reports - <a href='reports/SOUL_MD_Deep_Dive_Report.html'>SOUL_MD_Deep_Dive_Report.html</a></div><div class='item'>📅 reports - <a href='reports/LOBSTER_INSTALLATION_MANUAL.html'>LOBSTER_INSTALLATION_MANUAL.html</a></div><div class='item'>📅 reports - <a href='reports/2026-02-16_x_feed_report.html'>2026-02-16_x_feed_report.html</a></div><div class='item'>📅 reports - <a href='reports/2026-02-16_two_weeks_interaction_summary.html'>2026-02-16_two_weeks_interaction_summary.html</a></div><div class='item'>📅 reports - <a href='reports/2026-02-16_scrapegraphai_presentation.html'>2026-02-16_scrapegraphai_presentation.html</a></div><div class='item'>📅 2026-02-16 - <a href='reports/2026-02-16/2026-02-16-report.html'>2026-02-16-report.html</a></div><div class='item'>📅 2026-02-15 - <a href='reports/2026-02-15/weekly_report_2026-02-15.html'>weekly_report_2026-02-15.html</a></div><div class='item'>📅 2026-02-15 - <a href='reports/2026-02-15/2026-02-15-report.html'>2026-02-15-report.html</a></div><div class='item'>📅 2026-02-14 - <a href='reports/2026-02-14/2026-02-14-report.html'>2026-02-14-report.html</a></div><div class='item'>📅 2026-02-13 - <a href='reports/2026-02-13/2026-02-13-report.html'>2026-02-13-report.html</a></div><div class='item'>📅 2026-02-11 - <a href='reports/2026-02-11/intelligence_report_1200.html'>intelligence_report_1200.html</a></div><div class='item'>📅 2026-02-11 - <a href='reports/2026-02-11/intelligence_report.html'>intelligence_report.html</a></div><div class='item'>📅 2026-02-11 - <a href='reports/2026-02-11/2026-02-11_12_全網趨勢分析.html'>2026-02-11_12_全網趨勢分析.html</a></div><div class='item'>📅 2026-02-11 - <a href='reports/2026-02-11/2026-02-11_09_全網趨勢分析.html'>2026-02-11_09_全網趨勢分析.html</a></div><div class='item'>📅 2026-02-11 - <a href='reports/2026-02-11/2026-02-11_06_全網趨勢分析.html'>2026-02-11_06_全網趨勢分析.html</a></div><div class='item'>📅 2026-02-11 - <a href='reports/2026-02-11/2026-02-11_03_全網趨勢分析.html'>2026-02-11_03_全網趨勢分析.html</a></div><div class='item'>📅 2026-02-11 - <a href='reports/2026-02-11/2026-02-11-morning-digest.html'>2026-02-11-morning-digest.html</a></div><div class='item'>📅 reports - <a href='reports/2026-02-10_lobster_strategy_archive.html'>2026-02-10_lobster_strategy_archive.html</a></div><div class='item'>📅 reports - <a href='reports/2026-02-10_line_debt_collection_strategy.html'>2026-02-10_line_debt_collection_strategy.html</a></div><div class='item'>📅 reports - <a href='reports/2026-02-10_hostifi_live_status.html'>2026-02-10_hostifi_live_status.html</a></div><div class='item'>📅 reports - <a href='reports/2026-02-10_hostifi_automation_strategy.html'>2026-02-10_hostifi_automation_strategy.html</a></div><div class='item'>📅 2026-02-10 - <a href='reports/2026-02-10/trending_intelligence_0210.html'>trending_intelligence_0210.html</a></div><div class='item'>📅 2026-02-10 - <a href='reports/2026-02-10/morning_intelligence_0210.html'>morning_intelligence_0210.html</a></div><div class='item'>📅 2026-02-10 - <a href='reports/2026-02-10/lobster_visual_promo.html'>lobster_visual_promo.html</a></div><div class='item'>📅 2026-02-10 - <a href='reports/2026-02-10/consultation_filter_workflow.html'>consultation_filter_workflow.html</a></div><div class='item'>📅 2026-02-10 - <a href='reports/2026-02-10/asset_conversion_strategy.html'>asset_conversion_strategy.html</a></div><div class='item'>📅 2026-02-10 - <a href='reports/2026-02-10/ai_image_tool_trends_0210.html'>ai_image_tool_trends_0210.html</a></div><div class='item'>📅 reports - <a href='reports/2026-02-09_competitor_analysis.html'>2026-02-09_competitor_analysis.html</a></div><div class='item'>📅 2026-02-09 - <a href='reports/2026-02-09/2026-02-09_18_PM2_Strategic_Analysis.html'>2026-02-09_18_PM2_Strategic_Analysis.html</a></div><div class='item'>📅 2026-02-09 - <a href='reports/2026-02-09/2026-02-09_09_OpenCRAW_Sentinel_Analysis.html'>2026-02-09_09_OpenCRAW_Sentinel_Analysis.html</a></div><div class='item'>📅 2026-02-09 - <a href='reports/2026-02-09/2026-02-09_09_Cronjob_Reliability_Report.html'>2026-02-09_09_Cronjob_Reliability_Report.html</a></div><div class='item'>📅 reports - <a href='reports/2026-02-08_TwoDay_Executive_Summary.html'>2026-02-08_TwoDay_Executive_Summary.html</a></div><div class='item'>📅 reports - <a href='reports/2026-02-08_Nightly_PostMortem.html'>2026-02-08_Nightly_PostMortem.html</a></div><div class='item'>📅 2026-02-08 - <a href='reports/2026-02-08/opencraw_sentinel_scan_01.html'>opencraw_sentinel_scan_01.html</a></div><div class='item'>📅 2026-02-08 - <a href='reports/2026-02-08/Weekend_Intel_Report_v1.html'>Weekend_Intel_Report_v1.html</a></div><div class='item'>📅 2026-02-08 - <a href='reports/2026-02-08/Multi_Instance_Lobster_Solution.html'>Multi_Instance_Lobster_Solution.html</a></div><div class='item'>📅 2026-02-08 - <a href='reports/2026-02-08/Lobster_Ad_Strike_Plan.html'>Lobster_Ad_Strike_Plan.html</a></div><div class='item'>📅 2026-02-08 - <a href='reports/2026-02-08/Global_Lobster_Install_Market_DeepDive.html'>Global_Lobster_Install_Market_DeepDive.html</a></div><div class='item'>📅 2026-02-08 - <a href='reports/2026-02-08/Global_Competitor_Analysis_v1.html'>Global_Competitor_Analysis_v1.html</a></div><div class='item'>📅 2026-02-08 - <a href='reports/2026-02-08/GMI_Strategy_Analysis.html'>GMI_Strategy_Analysis.html</a></div><div class='item'>📅 2026-02-08 - <a href='reports/2026-02-08/Builder_Ecosystem_Strategy.html'>Builder_Ecosystem_Strategy.html</a></div><div class='item'>📅 2026-02-07 - <a href='reports/2026-02-07/weekly_summary_2026_02_07.html'>weekly_summary_2026_02_07.html</a></div><div class='item'>📅 2026-02-05 - <a href='reports/2026-02-05/2026-02-05-morning-digest.html'>2026-02-05-morning-digest.html</a></div>
     </div>
-
-    <h2>📡 每日情報監控 (Intelligence Feed)</h2>
-    <div class="list">
-        <div class='item'>
-            <span class="tag tag-intel">WEEKEND WRAPUP</span>
-            <a href='reports/2026-02-08/Weekend_Intel_Report_v1.html'>🕯️ 週末全球情報匯總：關鍵事件與趨勢監控 (v1)</a>
-            <div class="date">📅 2026-02-08 | Intel Report</div>
-        </div>
-        <div class='item'>
-            <span class="tag tag-intel">WEEKLY SUMMARY</span>
-            <a href='reports/2026-02-07/weekly_summary_2026_02_07.html'>📊 每週情報總結 (2026-02-01 ~ 02-07)</a>
-            <div class="date">📅 2026-02-07 | Archive</div>
-        </div>
-        <div class='item'>
-            <span class="tag tag-intel">MORNING DIGEST</span>
-            <a href='reports/2026-02-05/2026-02-05-morning-digest.html'>☕ 2026-02-05 早晨情報摘要：關鍵指標回報</a>
-            <div class="date">📅 2026-02-05 | Digest</div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <div>System Status: 🟢 Operational | Latest Update: 2026-02-08 22:50:00</div>
-        <div>🦞 Sentinel Intel Hub Maintenance Team</div>
+    <div style="margin-top: 50px; color: #64748b; font-size: 0.8rem;">
+        Last updated: 2026-02-16 23:02:18 | 🦞 Generated by 阿蓋小弟
     </div>
 </body>
 </html>

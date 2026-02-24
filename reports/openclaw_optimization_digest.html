@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw 優化知識庫總覽 | Lobster Intelligence Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+                    },
+                    colors: {
+                        lobster: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        },
+                        dark: {
+                            900: '#0f0f1a',
+                            800: '#1a1a2e',
+                            700: '#252542',
+                            600: '#30305a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #252542 100%);
+            min-height: 100vh;
+        }
+        .glass-card {
+            background: rgba(26, 26, 46, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-orange {
+            box-shadow: 0 0 40px rgba(249, 115, 22, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #fb923c 0%, #f97316 50%, #ea580c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(249, 115, 22, 0.2);
+            border-color: rgba(249, 115, 22, 0.3);
+        }
+        .toc-link {
+            transition: all 0.2s ease;
+        }
+        .toc-link:hover {
+            color: #fb923c;
+            padding-left: 8px;
+        }
+        .tag {
+            transition: all 0.2s ease;
+        }
+        .tag:hover {
+            transform: scale(1.05);
+        }
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+        .source-link {
+            transition: all 0.2s ease;
+        }
+        .source-link:hover {
+            color: #fb923c;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="text-gray-200 font-sans scroll-smooth">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-red-600 rounded-xl flex items-center justify-center text-xl">🦞</div>
+                    <div>
+                        <h1 class="text-xl font-bold text-white">OpenClaw 優化知識庫總覽</h1>
+                        <p class="text-xs text-gray-400">Lobster Intelligence Hub</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center gap-4 text-sm text-gray-400">
+                    <span class="flex items-center gap-2">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                        2026-02-17 更新
+                    </span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">共 25+ 篇文獻</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="pt-20 flex max-w-7xl mx-auto">
+        
+        <!-- Sidebar TOC -->
+        <nav class="hidden lg:block w-64 fixed h-full overflow-y-auto py-8 px-4">
+            <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">目錄導航</div>
+            <ul class="space-y-2 text-sm">
+                <li><a href="#overview" class="toc-link block py-1 text-gray-300">📊 總覽</a></li>
+                <li><a href="#token-optimization" class="toc-link block py-1 text-gray-300">🔥 Token 優化</a></li>
+                <li class="ml-4"><a href="#token-strategies" class="toc-link block py-1 text-gray-400">- 節省策略</a></li>
+                <li class="ml-4"><a href="#token-models" class="toc-link block py-1 text-gray-400">- 模型選擇</a></li>
+                <li><a href="#memory-optimization" class="toc-link block py-1 text-gray-300">🧠 Memory 優化</a></li>
+                <li class="ml-4"><a href="#dap-protocol" class="toc-link block py-1 text-gray-400">- DAP 精華協議</a></li>
+                <li class="ml-4"><a href="#zombie-sessions" class="toc-link block py-1 text-gray-400">- Zombie Sessions</a></li>
+                <li><a href="#system-optimization" class="toc-link block py-1 text-gray-300">⚡ 系統優化</a></li>
+                <li class="ml-4"><a href="#cron-heartbeat" class="toc-link block py-1 text-gray-400">- Cron vs Heartbeat</a></li>
+                <li class="ml-4"><a href="#sub-agent" class="toc-link block py-1 text-gray-400">- Sub-Agent 管理</a></li>
+                <li><a href="#config-optimization" class="toc-link block py-1 text-gray-300">🔧 配置優化</a></li>
+                <li class="ml-4"><a href="#model-config" class="toc-link block py-1 text-gray-400">- 模型配置</a></li>
+                <li class="ml-4"><a href="#shortcuts" class="toc-link block py-1 text-gray-400">- 快捷指令</a></li>
+                <li><a href="#summary" class="toc-link block py-1 text-gray-300">📈 統計摘要</a></li>
+            </ul>
+
+            <div class="mt-8 p-4 glass-card rounded-xl">
+                <div class="text-xs text-gray-500 mb-2">關鍵指標</div>
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-400">Token 節省</span>
+                        <span class="text-orange-400 font-semibold">80-90%</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-400">壓縮觸發</span>
+                        <span class="text-green-400 font-semibold">100k/60%</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-400">自動復活</span>
+                        <span class="text-blue-400 font-semibold">10秒</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-1 lg:ml-64 px-4 sm:px-6 lg:px-8 py-8">
+            
+            <!-- Overview Section -->
+            <section id="overview" class="mb-12">
+                <div class="glass-card rounded-2xl p-8 glow-orange">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h2 class="text-3xl font-bold gradient-text mb-2">🦞 OpenClaw 優化知識庫</h2>
+                            <p class="text-gray-400">第二大腦中關於效能、Token、記憶體與系統配置的最佳實踐整理</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-4xl font-bold text-orange-400">25+</div>
+                            <div class="text-sm text-gray-500">相關文獻</div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-dark-800 rounded-xl p-4 text-center">
+                            <div class="text-2xl mb-1">🔥</div>
+                            <div class="text-lg font-semibold text-orange-400">Token</div>
+                            <div class="text-xs text-gray-500">優化策略</div>
+                        </div>
+                        <div class="bg-dark-800 rounded-xl p-4 text-center">
+                            <div class="text-2xl mb-1">🧠</div>
+                            <div class="text-lg font-semibold text-purple-400">Memory</div>
+                            <div class="text-xs text-gray-500">記憶管理</div>
+                        </div>
+                        <div class="bg-dark-800 rounded-xl p-4 text-center">
+                            <div class="text-2xl mb-1">⚡</div>
+                            <div class="text-lg font-semibold text-yellow-400">System</div>
+                            <div class="text-xs text-gray-500">系統效能</div>
+                        </div>
+                        <div class="bg-dark-800 rounded-xl p-4 text-center">
+                            <div class="text-2xl mb-1">🔧</div>
+                            <div class="text-lg font-semibold text-green-400">Config</div>
+                            <div class="text-xs text-gray-500">配置優化</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Token Optimization -->
+            <section id="token-optimization" class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center text-2xl">🔥</div>
+                    <h2 class="text-2xl font-bold text-white">Token 優化</h2>
+                </div>
+
+                <!-- Token Strategies -->
+                <div id="token-strategies" class="mb-8">
+                    <h3 class="text-lg font-semibold text-orange-400 mb-4 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>
+                        節省策略與實踐
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <!-- Card 1 -->
+                        <div class="glass-card rounded-xl p-6 card-hover">
+                            <div class="flex items-start justify-between mb-3">
+                                <span class="tag px-2 py-1 bg-orange-500/20 text-orange-400 text-xs rounded-full">核心策略</span>
+                                <span class="text-xs text-gray-500">2026-02-15</span>
+                            </div>
+                            <h4 class="font-semibold text-white mb-2">別再為 Token 焦慮</h4>
+                            <p class="text-sm text-gray-400 mb-3">范凯提出的配置架構：使用訂閱套餐取代 API Key，三大頂級模型 $20 訂閱已足夠覆蓋正常使用。</p>
+                            <ul class="text-sm text-gray-300 space-y-1 mb-3">
+                                <li>• Claude Pro → OpenClaw OAuth</li>
+                                <li>• GPT Plus → Codex CLI OAuth</li>
+                                <li>• Gemini Pro → Gemini CLI Auth</li>
+                            </ul>
+                            <a href="#" class="source-link text-xs text-gray-500">來源: lobster_second_brain.md</a>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="glass-card rounded-xl p-6 card-hover">
+                            <div class="flex items-start justify-between mb-3">
+                                <span class="tag px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full">技術技巧</span>
+                                <span class="text-xs text-gray-500">2026-02-14</span>
+                            </div>
+                            <h4 class="font-semibold text-white mb-2">Cloudflare Markdown 策略</h4>
+                            <p class="text-sm text-gray-400 mb-3">AEO 戰略佈局中的關鍵技術，使用 Markdown for Agents 可節省 <span class="text-green-400 font-semibold">80% Token</span>。</p>
+                            <ul class="text-sm text-gray-300 space-y-1 mb-3">
+                                <li>• 結構化萃取 → 極致列表化</li>
+                                <li>• 實體化原則 → 植入專家身分</li>
+                                <li>• 雙優化內容 → 人類可讀 + AI 可引用</li>
+                            </ul>
+                            <a href="#" class="source-link text-xs text-gray-500">來源: 2026-02-14.md, 2026-02-14_Distilled.md</a>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="glass-card rounded-xl p-6 card-hover">
+                            <div class="flex items-start justify-between mb-3">
+                                <span class="tag px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">開發效率</span>
+                                <span class="text-xs text-gray-500">2026-02-14</span>
+                            </div>
+                            <h4 class="font-semibold text-white mb-2">Claude Code Hooks + Agent Teams</h4>
+                            <p class="text-sm text-gray-400 mb-3">雙通道設計可節省 <span class="text-green-400 font-semibold">90% Token</span> 並實現秒級響應。</p>
+                            <ul class="text-sm text-gray-300 space-y-1 mb-3">
+                                <li>• Hooks 自動觸發 → 無需重複指令</li>
+                                <li>• Agent Teams 分工 → 並行處理</li>
+                                <li>• 建立 CLAUDE.md 規則文件</li>
+                            </ul>
+                            <a href="#" class="source-link text-xs text-gray-500">來源: 2026-02-14_Distilled.md</a>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="glass-card rounded-xl p-6 card-hover">
+                            <div class="flex items-start justify-between mb-3">
+                                <span class="tag px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">寫作優化</span>
+                                <span class="text-xs text-gray-500">2026-02-14</span>
+                            </div>
+                            <h4 class="font-semibold text-white mb-2">AEO 8 段式黃金骨架</h4>
+                            <p class="text-sm text-gray-400 mb-3">嚴格結構降低 AI Token 消耗，提升引用率。</p>
+                            <ul class="text-sm text-gray-300 space-y-1 mb-3">
+                                <li>• 禁止: 「本文將介紹」、空泛形容</li>
+                                <li>• 強制: 導言→核心條件→執行流程→FAQ</li>
+                                <li>• 一次只談一個重點</li>
+                            </ul>
+                            <a href="#" class="source-link text-xs text-gray-500">來源: lobster_second_brain.md</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Model Selection -->
+                <div id="token-models">
+                    <h3 class="text-lg font-semibold text-orange-400 mb-4 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>
+                        多模型分工策略
+                    </h3>
+                    
+                    <div class="glass-card rounded-xl p-6">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="border-b border-gray-700">
+                                        <th class="text-left py-3 text-gray-400 font-medium">模型</th>
+                                        <th class="text-left py-3 text-gray-400 font-medium">Context</th>
+                                        <th class="text-left py-3 text-gray-400 font-medium">用途</th>
+                                        <th class="text-left py-3 text-gray-400 font-medium">成本效益</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-gray-300">
+                                    <tr class="border-b border-gray-800">
+                                        <td class="py-3 font-medium text-white">Gemini 3 Flash</td>
+                                        <td class="py-3">1M tokens</td>
+                                        <td class="py-3">預設/日常/視覺辨識</td>
+                                        <td class="py-3 text-green-400">⭐⭐⭐ 最高</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-800">
+                                        <td class="py-3 font-medium text-white">Kimi K2.5</td>
+                                        <td class="py-3">256K</td>
+                                        <td class="py-3">內容統整/深度分析</td>
+                                        <td class="py-3 text-yellow-400">⭐⭐ 中等</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-800">
+                                        <td class="py-3 font-medium text-white">GPT 5.3 Codex</td>
+                                        <td class="py-3">200K</td>
+                                        <td class="py-3">編程/邏輯推理</td>
+                                        <td class="py-3 text-orange-400">⭐⭐ 中等</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-800">
+                                        <td class="py-3 font-medium text-white">Claude Opus 4.6</td>
+                                        <td class="py-3">400K</td>
+                                        <td class="py-3">創新問題解決</td>
+                                        <td class="py-3 text-red-400">⭐ 較高</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-medium text-white">DeepSeek V3.2</td>
+                                        <td class="py-3">128K</td>
+                                        <td class="py-3">預設主模型 (2026-02-16)</td>
+                                        <td class="py-3 text-green-400">⭐⭐⭐ 高</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-4 p-4 bg-dark-800 rounded-lg">
+                            <p class="text-sm text-gray-400">
+                                <span class="text-orange-400 font-semibold">💡 關鍵決策：</span>
+                                Cron Jobs 全面採用 GPT 5.3 Codex；主會話根據場景切換模型。避免單一模型超載導致的 Token 浪費。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Memory Optimization -->
+            <section id="memory-optimization" class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center text-2xl">🧠</div>
+                    <h2 class="text-2xl font-bold text-white">Memory 優化</h2>
+                </div>
+
+                <!-- DAP Protocol -->
+                <div id="dap-protocol" class="mb-8">
+                    <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>
+                        龍蝦精華協議 (DAP - Distilled Asset Protocol)
+                    </h3>
+                    
+                    <div class="glass-card rounded-xl p-6 mb-4 border-l-4 border-purple-500">
+                        <h4 class="font-semibold text-white mb-3">協議核心機制</h4>
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div class="bg-dark-800 rounded-lg p-4">
+                                <div class="text-xs text-gray-500 mb-1">觸發條件</div>
+                                <div class="text-lg font-semibold text-white">Context > 100K</div>
+                                <div class="text-lg font-semibold text-white">Quota > 60%</div>
+                                <div class="text-xs text-gray-500 mt-1">任一達標即觸發</div>
+                            </div>
+                            <div class="bg-dark-800 rounded-lg p-4">
+                                <div class="text-xs text-gray-500 mb-1">執行動作</div>
+                                <div class="text-sm text-gray-300 space-y-1">
+                                    <div>1. 讀取當日記憶檔案</div>
+                                    <div>2. 更新 Distilled 精華</div>
+                                    <div>3. 執行 <code class="bg-dark-900 px-1 rounded">/compact</code></div>
+                                    <div>4. 發送壓縮報告</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-400">
+                            當上下文超過 100k 時，必須將今日的重要指令、成果與情境提煉到 <code class="bg-dark-900 px-2 py-0.5 rounded text-purple-400">memory/YYYY-MM-DD_Distilled.md</code>。
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="glass-card rounded-xl p-6 card-hover">
+                            <div class="flex items-start justify-between mb-3">
+                                <span class="tag px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">技術驗證</span>
+                                <span class="text-xs text-gray-500">2026-02-16</span>
+                            </div>
+                            <h4 class="font-semibold text-white mb-2">協議設計缺陷與重構</h4>
+                            <p class="text-sm text-gray-400 mb-3">經過 <span class="text-orange-400">15 次完整檢查</span>，確認 Cron 任務無法跨 session 監控。</p>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• ❌ 無法讀取主 Session context 狀態</li>
+                                <li>• ❌ Isolated session 永遠顯示 0%</li>
+                                <li>• ✅ 轉型為時間觸發 (9:00/15:00/21:00)</li>
+                            </ul>
+                            <a href="#" class="source-link text-xs text-gray-500 block mt-3">來源: 2026-02-16.md, 2026-02-16_auto_compact_report_2113.md</a>
+                        </div>
+
+                        <div class="glass-card rounded-xl p-6 card-hover">
+                            <div class="flex items-start justify-between mb-3">
+                                <span class="tag px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">實際成效</span>
+                                <span class="text-xs text-gray-500">2026-02-14</span>
+                            </div>
+                            <h4 class="font-semibold text-white mb-2">精華存檔實例</h4>
+                            <p class="text-sm text-gray-400 mb-3">單次壓縮釋放多個 Sessions：</p>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• X Feed Monitor: 200K/200K → ✅ Compact</li>
+                                <li>• 深夜戰略覆盤: 256K/256K → ✅ Compact</li>
+                                <li>• OpenCRAW Sentinel: 1M/1M (95%) → ✅ Compact</li>
+                                <li>• Sentinel Periodic: 1M/1M → ✅ Compact</li>
+                            </ul>
+                            <a href="#" class="source-link text-xs text-gray-500 block mt-3">來源: 2026-02-14_Distilled.md</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zombie Sessions -->
+                <div id="zombie-sessions">
+                    <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>
+                        Zombie Sessions 防禦機制
+                    </h3>
+                    
+                    <div class="glass-card rounded-xl p-6">
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-white mb-3">🛡️ 多層防護機制 (Defense in Depth)</h4>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="bg-gradient-to-br from-green-500/10 to-green-600/10 border border-green-500/20 rounded-xl p-4">
+                                    <div class="text-xs text-green-400 mb-2">Layer 1</div>
+                                    <div class="font-semibold text-white mb-1">開發者主動調用</div>
+                                    <p class="text-sm text-gray-400">Sub-Agent 結束時主動呼叫 Lifecycle API</p>
+                                    <div class="text-xs text-green-500 mt-2">即時封存，無延遲</div>
+                                </div>
+                                <div class="bg-gradient-to-br from-yellow-500/10 to-yellow-600/10 border border-yellow-500/20 rounded-xl p-4">
+                                    <div class="text-xs text-yellow-400 mb-2">Layer 2</div>
+                                    <div class="font-semibold text-white mb-1">常駐 Guardian</div>
+                                    <p class="text-sm text-gray-400">30秒輪詢，檢測 Token > 80% 或 10分鐘無活動</p>
+                                    <div class="text-xs text-yellow-500 mt-2">自動封存 + 通知</div>
+                                </div>
+                                <div class="bg-gradient-to-br from-red-500/10 to-red-600/10 border border-red-500/20 rounded-xl p-4">
+                                    <div class="text-xs text-red-400 mb-2">Layer 3</div>
+                                    <div class="font-semibold text-white mb-1">Cron 兜底</div>
+                                    <p class="text-sm text-gray-400">每小時清理任何漏網之魚</p>
+                                    <div class="text-xs text-red-500 mt-2">最後防線</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-dark-800 rounded-lg p-4 mb-4">
+                            <h5 class="font-medium text-white mb-2">📝 慘痛教訓總結</h5>
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="border-b border-gray-700">
+                                        <th class="text-left py-2 text-gray-400">問題</th>
+                                        <th class="text-left py-2 text-gray-400">原因</th>
+                                        <th class="text-left py-2 text-gray-400">後果</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-gray-300">
+                                    <tr class="border-b border-gray-800">
+                                        <td class="py-2">Token 100% 爆炸</td>
+                                        <td class="py-2">Sub-Agent 結束不自動清理</td>
+                                        <td class="py-2">Context window 滿載</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-800">
+                                        <td class="py-2">Zombie Sessions 累積</td>
+                                        <td class="py-2">Cron 掃描時間差遺漏</td>
+                                        <td class="py-2">系統負載增加</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2">無預警機制</td>
+                                        <td class="py-2">沒有 80% 預警</td>
+                                        <td class="py-2">來不及反應只能重啟</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-dark-800 rounded-lg p-4">
+                                <h5 class="font-medium text-white mb-2">✅ Sub-Agent 最佳實踐</h5>
+                                <ul class="text-sm text-gray-300 space-y-1">
+                                    <li>• Isolated Session：每個獨立上下文</li>
+                                    <li>• Auto-Terminate：任務完成自動結束</li>
+                                    <li>• Auto-Archive：Transcript 自動保存</li>
+                                    <li>• 一個 session = 一個任務</li>
+                                    <li>• 不跨任務重用 session</li>
+                                </ul>
+                            </div>
+                            <div class="bg-dark-800 rounded-lg p-4">
+                                <h5 class="font-medium text-white mb-2">❌ 反模式（避免）</h5>
+                                <ul class="text-sm text-gray-300 space-y-1">
+                                    <li>• 長期運行的 Sub-Agent</li>
+                                    <li>• Session 重用造成 context 污染</li>
+                                    <li>• 無限制並發導致資源枯竭</li>
+                                    <li>• 超過單一任務範圍</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="#" class="source-link text-xs text-gray-500 block mt-4">來源: lobster_second_brain.md</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- System Optimization -->
+            <section id="system-optimization" class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-amber-600 rounded-xl flex items-center justify-center text-2xl">⚡</div>
+                    <h2 class="text-2xl font-bold text-white">系統優化</h2>
+                </div>
+
+                <!-- Cron vs Heartbeat -->
+                <div id="cron-heartbeat" class="mb-8">
+                    <h3 class="text-lg font-semibold text-yellow-400 mb-4 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 bg-yellow-400 rounded-full"></span>
+                        Cron vs Heartbeat 決策框架
+                    </h3>
+                    
+                    <div class="glass-card rounded-xl p-6 mb-4">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-white mb-3 flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-blue-400 rounded-full"></span>
+                                    Heartbeat 適用時機
+                                </h4>
+                                <ul class="text-sm text-gray-300 space-y-2">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-400 mt-0.5">•</span>
+                                        <span><strong>批次檢查</strong>：郵件、行事曆、通知多項合一</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-400 mt-0.5">•</span>
+                                        <span><strong>上下文感知</strong>：根據近期對話判斷優先級</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-400 mt-0.5">•</span>
+                                        <span><strong>降低 API 成本</strong>：一個 heartbeat 取代多個 cron</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-400 mt-0.5">•</span>
+                                        <span><strong>智慧抑制</strong>：回覆 HEARTBEAT_OK 不發訊息</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-3 flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-orange-400 rounded-full"></span>
+                                    Cron 適用時機
+                                </h4>
+                                <ul class="text-sm text-gray-300 space-y-2">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-orange-400 mt-0.5">•</span>
+                                        <span><strong>精確時間</strong>：「每週一 9:00」而非「大概 9 點」</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-orange-400 mt-0.5">•</span>
+                                        <span><strong>獨立執行</strong>：不污染主 session 歷史記錄</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-orange-400 mt-0.5">•</span>
+                                        <span><strong>模型切換</strong>：可用更強大或更便宜模型</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-orange-400 mt-0.5">•</span>
+                                        <span><strong>一次性提醒</strong>：--at "20m" 精確倒數</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6">
+                        <h4 class="font-semibold text-white mb-3">🦞 龍蝦系統現況對照</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="border-b border-gray-700">
+                                        <th class="text-left py-3 text-gray-400">任務</th>
+                                        <th class="text-left py-3 text-gray-400">機制</th>
+                                        <th class="text-left py-3 text-gray-400">原因</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-gray-300">
+                                    <tr class="border-b border-gray-800">
+                                        <td class="py-3 font-medium">龍蝦精華協議</td>
+                                        <td class="py-3"><span class="text-orange-400">Cron</span></td>
+                                        <td class="py-3">精確監控 Context 水位</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-800">
+                                        <td class="py-3 font-medium">X Feed Monitor</td>
+                                        <td class="py-3"><span class="text-orange-400">Cron (每4H)</span></td>
+                                        <td class="py-3">隔離執行、獨立模型</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-800">
+                                        <td class="py-3 font-medium">配額日報</td>
+                                        <td class="py-3"><span class="text-orange-400">Cron (每日23:59)</span></td>
+                                        <td class="py-3">精確時間、隔離執行</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-medium">日常監控</td>
+                                        <td class="py-3"><span class="text-blue-400">Heartbeat</span></td>
+                                        <td class="py-3">批次檢查、上下文感知</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-4 p-4 bg-dark-800 rounded-lg">
+                            <p class="text-sm text-gray-400">
+                                <span class="text-yellow-400 font-semibold">💡 最佳實踐：</span>
+                                保持 HEARTBEAT.md 精簡減少 token 開銷；批次相似檢查；隔離 cron 使用便宜模型；兩者並用發揮最大效益。
+                            </p>
+                        </div>
+                        <a href="#" class="source-link text-xs text-gray-500 block mt-3">來源: lobster_second_brain.md</a>
+                    </div>
+                </div>
+
+                <!-- Sub-Agent Management -->
+                <div id="sub-agent" class="mb-8">
+                    <h3 class="text-lg font-semibold text-yellow-400 mb-4 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 bg-yellow-400 rounded-full"></span>
+                        Sub-Agent 批次處理模式
+                    </h3>
+                    
+                    <div class="glass-card rounded-xl p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-semibold text-white">批次處理流程</h4>
+                            <span class="text-xs text-gray-500">並發限制：maxConcurrent = 8</span>
+                        </div>
+                        
+                        <div class="bg-dark-800 rounded-lg p-4 mb-4 font-mono text-sm">
+                            <div class="text-gray-400"># 批次處理模式</div>
+                            <div class="text-green-400">Batch 1: 啟動 4 個 Sub-Agents</div>
+                            <div class="text-gray-500">    ↓</div>
+                            <div class="text-blue-400">等待全部完成 → 自動銷毀並封存</div>
+                            <div class="text-gray-500">    ↓</div>
+                            <div class="text-green-400">Batch 2: 啟動下一批 4 個 Sub-Agents</div>
+                            <div class="text-gray-500">    ↓</div>
+                            <div class="text-blue-400">等待完成 → 自動銷毀...</div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-medium text-green-400 mb-2">✅ 優勢</h5>
+                                <ul class="text-sm text-gray-300 space-y-1">
+                                    <li>• 無 Zombie Sessions</li>
+                                    <li>• 無 Context 累積</li>
+                                    <li>• .jsonl 自動保存對話</li>
+                                    <li>• 批次處理不造成負載累積</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-medium text-white mb-2">⚙️ 配置設定</h5>
+                                <div class="bg-dark-900 rounded p-3 font-mono text-xs">
+                                    <div class="text-purple-400">"subagents": {</div>
+                                    <div class="text-gray-300 pl-4">"maxConcurrent": <span class="text-orange-400">8</span></div>
+                                    <div class="text-purple-400">}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="source-link text-xs text-gray-500 block mt-4">來源: lobster_second_brain.md</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Configuration Optimization -->
+            <section id="config-optimization" class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-2xl">🔧</div>
+                    <h2 class="text-2xl font-bold text-white">配置優化</h2>
+                </div>
+
+                <!-- Model Config -->
+                <div id="model-config" class="mb-8">
+                    <h3 class="text-lg font-semibold text-green-400 mb-4 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>
+                        OpenClaw 標準配置模式
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div class="glass-card rounded-xl p-6 card-hover">
+                            <div class="flex items-start justify-between mb-3">
+                                <span class="tag px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">核心配置</span>
+                                <span class="text-xs text-gray-500">2026-02-05</span>
+                            </div>
+                            <h4 class="font-semibold text-white mb-2">Memory Flush 防止失憶</h4>
+                            <div class="bg-dark-900 rounded p-3 font-mono text-xs mb-3">
+                                <div class="text-purple-400">"compaction": {</div>
+                                <div class="text-gray-300 pl-4">"memoryFlush": {</div>
+                                <div class="text-gray-300 pl-8">"enabled": <span class="text-green-400">true</span></div>
+                                <div class="text-gray-300 pl-4">}</div>
+                                <div class="text-purple-400">}</div>
+                            </div>
+                            <p class="text-sm text-gray-400">啟用記憶體刷新防止重要資訊遺失</p>
+                            <a href="#" class="source-link text-xs text-gray-500">來源: openclaw-standard-config.md</a>
+                        </div>
+
+                        <div class="glass-card rounded-xl p-6 card-hover">
+                            <div class="flex items-start justify-between mb-3">
+                                <span class="tag px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full">系統設定</span>
+                                <span class="text-xs text-gray-500">2026-02-17</span>
+                            </div>
+                            <h4 class="font-semibold text-white mb-2">預設模型切換紀錄</h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">原預設</span>
+                                    <span class="text-gray-300">DeepSeek-V3.2</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">新預設</span>
+                                    <span class="text-orange-400 font-semibold">Kimi K2.5</span>
+                                </div>
+                                <div class="text-xs text-gray-500 mt-2">原因：偏好 Kimi 的編程與邏輯推理能力</div>
+                            </div>
+                            <a href="#" class="source-link text-xs text-gray-500">來源: 2026-02-17.md</a>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6">
+                        <h4 class="font-semibold text-white mb-4">🤖 多模型分工體系配置</h4>
+                        <div class="bg-dark-900 rounded-lg p-4 font-mono text-xs overflow-x-auto">
+                            <div class="text-gray-400">// ~/.openclaw/openclaw.json</div>
+                            <div class="text-purple-400 mt-2">"agents": {</div>
+                            <div class="text-gray-300 pl-4">"defaults": {</div>
+                            <div class="text-gray-300 pl-8">"model": {</div>
+                            <div class="text-gray-300 pl-12">"primary": <span class="text-green-400">"google-antigravity/gemini-3-flash"</span></div>
+                            <div class="text-gray-300 pl-8">},</div>
+                            <div class="text-gray-300 pl-8">"models": {</div>
+                            <div class="text-gray-300 pl-12"><span class="text-green-400">"google-antigravity/gemini-3-flash"</span>: {</div>
+                            <div class="text-gray-300 pl-16">"alias": <span class="text-yellow-400">"gemini-flash"</span></div>
+                            <div class="text-gray-300 pl-12">},</div>
+                            <div class="text-gray-300 pl-12"><span class="text-green-400">"moonshot/kimi-k2.5"</span>: {</div>
+                            <div class="text-gray-300 pl-16">"alias": <span class="text-yellow-400">"kimi"</span></div>
+                            <div class="text-gray-300 pl-12">},</div>
+                            <div class="text-gray-300 pl-12"><span class="text-green-400">"openai/codex"</span>: {</div>
+                            <div class="text-gray-300 pl-16">"alias": <span class="text-yellow-400">"codex"</span></div>
+                            <div class="text-gray-300 pl-12">}</div>
+                            <div class="text-gray-300 pl-8">}</div>
+                            <div class="text-gray-300 pl-4">}</div>
+                            <div class="text-purple-400">}</div>
+                        </div>
+                        <a href="#" class="source-link text-xs text-gray-500 block mt-3">來源: openclaw-standard-config.md</a>
+                    </div>
+                </div>
+
+                <!-- Shortcuts -->
+                <div id="shortcuts">
+                    <h3 class="text-lg font-semibold text-green-400 mb-4 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>
+                        快捷指令系統
+                    </h3>
+                    
+                    <div class="glass-card rounded-xl p-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-white mb-3">Shortcuts 配置</h4>
+                                <div class="bg-dark-900 rounded-lg p-4 font-mono text-xs">
+                                    <div class="text-purple-400">"shortcuts": {</div>
+                                    <div class="text-gray-300 pl-4">"g3f": <span class="text-green-400">"switch-model google/gemini-3-flash-preview"</span>,</div>
+                                    <div class="text-gray-300 pl-4">"g3p": <span class="text-green-400">"switch-model google/gemini-3-pro-preview"</span>,</div>
+                                    <div class="text-gray-300 pl-4">"k25": <span class="text-green-400">"switch-model moonshot/kimi-k2.5"</span>,</div>
+                                    <div class="text-gray-300 pl-4">"codex": <span class="text-green-400">"switch-model openai/codex"</span>,</div>
+                                    <div class="text-gray-300 pl-4">"models": <span class="text-green-400">"models"</span>,</div>
+                                    <div class="text-gray-300 pl-4">"status": <span class="text-green-400">"status"</span>,</div>
+                                    <div class="text-gray-300 pl-4">"menu": <span class="text-green-400">"menu"</span></div>
+                                    <div class="text-purple-400">}</div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-3">Telegram 指令選單</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center gap-2 text-sm">
+                                        <span class="px-2 py-0.5 bg-gray-700 rounded text-xs">/menu</span>
+                                        <span class="text-gray-400">🎮 呼叫模型切換控制台</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 text-sm">
+                                        <span class="px-2 py-0.5 bg-gray-700 rounded text-xs">/g3f</span>
+                                        <span class="text-gray-400">🚀 切換至 Gemini Flash</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 text-sm">
+                                        <span class="px-2 py-0.5 bg-gray-700 rounded text-xs">/k25</span>
+                                        <span class="text-gray-400">🧠 切換至 Kimi k2.5</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 text-sm">
+                                        <span class="px-2 py-0.5 bg-gray-700 rounded text-xs">/codex</span>
+                                        <span class="text-gray-400">👨‍💻 切換至 Codex</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 text-sm">
+                                        <span class="px-2 py-0.5 bg-gray-700 rounded text-xs">/status</span>
+                                        <span class="text-gray-400">📊 查看系統當前狀態</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <div class="bg-dark-800 rounded-lg p-3 text-center">
+                                <div class="text-lg mb-1">/compact</div>
+                                <div class="text-xs text-gray-500">龍蝦清空</div>
+                            </div>
+                            <div class="bg-dark-800 rounded-lg p-3 text-center">
+                                <div class="text-lg mb-1">/sessions</div>
+                                <div class="text-xs text-gray-500">兵團監控</div>
+                            </div>
+                            <div class="bg-dark-800 rounded-lg p-3 text-center">
+                                <div class="text-lg mb-1">/spawn</div>
+                                <div class="text-xs text-gray-500">分身分派</div>
+                            </div>
+                            <div class="bg-dark-800 rounded-lg p-3 text-center">
+                                <div class="text-lg mb-1">/reasoning</div>
+                                <div class="text-xs text-gray-500">思維切換</div>
+                            </div>
+                        </div>
+                        <a href="#" class="source-link text-xs text-gray-500 block mt-4">來源: openclaw-standard-config.md, lobster_commands_encyclopedia.md</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-2xl">📈</div>
+                    <h2 class="text-2xl font-bold text-white">統計摘要</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="glass-card rounded-xl p-6 text-center">
+                        <div class="text-3xl font-bold text-orange-400 mb-1">25+</div>
+                        <div class="text-sm text-gray-400">相關文獻</div>
+                    </div>
+                    <div class="glass-card rounded-xl p-6 text-center">
+                        <div class="text-3xl font-bold text-purple-400 mb-1">15</div>
+                        <div class="text-sm text-gray-400">DAP 協議檢查次數</div>
+                    </div>
+                    <div class="glass-card rounded-xl p-6 text-center">
+                        <div class="text-3xl font-bold text-green-400 mb-1">90%</div>
+                        <div class="text-sm text-gray-400">Token 節省潛力</div>
+                    </div>
+                    <div class="glass-card rounded-xl p-6 text-center">
+                        <div class="text-3xl font-bold text-blue-400 mb-1">10s</div>
+                        <div class="text-sm text-gray-400">系統自動復活</div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl p-6">
+                    <h4 class="font-semibold text-white mb-4">📁 來源檔案清單</h4>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <h5 class="text-orange-400 font-medium mb-2">核心文獻</h5>
+                            <ul class="text-gray-400 space-y-1">
+                                <li>• 2026-02-16.md - 系統重構與技術評估</li>
+                                <li>• 2026-02-17.md - 模型切換與系統設定</li>
+                                <li>• 2026-02-14.md - 系統盤點與最佳實踐</li>
+                                <li>• 2026-02-14_Distilled.md - 精華總結</li>
+                                <li>• openclaw-standard-config.md - 標準配置</li>
+                                <li>• lobster_second_brain.md - 第二大腦知識庫</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="text-orange-400 font-medium mb-2">壓縮報告</h5>
+                            <ul class="text-gray-400 space-y-1">
+                                <li>• 2026-02-16_auto_compact_report.md</li>
+                                <li>• 2026-02-16_auto_compact_report_2113.md</li>
+                                <li>• 2026-02-16_auto_compact_report_2053.md</li>
+                                <li>• 2026-02-16_auto_compact_report_2013.md</li>
+                                <li>• 2026-02-16_auto_compact_report_1753.md</li>
+                                <li>• lobster_commands_encyclopedia.md</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 glass-card rounded-xl p-6 border-l-4 border-orange-500">
+                    <h4 class="font-semibold text-white mb-2">🎯 整理總結</h4>
+                    <p class="text-sm text-gray-400 mb-3">
+                        本次整理涵蓋 OpenClaw 優化的四大核心領域：<span class="text-orange-400">Token 優化</span>、
+                        <span class="text-purple-400">Memory 管理</span>、<span class="text-yellow-400">系統架構</span>、
+                        <span class="text-green-400">配置最佳實踐</span>。
+                    </p>
+                    <p class="text-sm text-gray-400">
+                        關鍵發現包括：多模型分工可節省 90% Token；DAP 精華協議成功轉型為時間觸發；
+                        Zombie Sessions 三層防護機制；以及 Cron vs Heartbeat 的決策框架。
+                        所有內容均已標註日期與來源，便於追蹤決策演進。
+                    </p>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="text-center py-8 border-t border-gray-800">
+                <div class="flex items-center justify-center gap-2 text-gray-500 text-sm mb-2">
+                    <span class="text-xl">🦞</span>
+                    <span>Lobster Intelligence Hub</span>
+                </div>
+                <p class="text-xs text-gray-600">
+                    整理時間：2026-02-17 | 儲存路徑：/Users/user/reports/openclaw_optimization_digest.html
+                </p>
+            </footer>
+
+        </main>
+    </div>
+
+</body>
+</html>

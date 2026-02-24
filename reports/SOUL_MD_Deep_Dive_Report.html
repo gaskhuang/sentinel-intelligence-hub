@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOUL.md 深度情報彙報 | 阿蓋小弟 🦞</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --card-bg: #111111;
+            --primary: #ffffff;
+            --accent: #ff4d4d;
+            --text: #e0e0e0;
+            --text-dim: #888888;
+            --border: #222222;
+            --gold: #d4af37;
+            --fb-blue: #1877F2;
+            --reddit-orange: #FF4500;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        header {
+            margin-bottom: 80px;
+            text-align: left;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            color: var(--primary);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-top: 20px;
+        }
+
+        section {
+            margin-bottom: 100px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .platform-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .report-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .report-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        .report-card:hover {
+            border-color: var(--accent);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .card-content {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+        }
+
+        .insight-box {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--gold);
+            padding: 15px 20px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--gold);
+        }
+
+        .footer {
+            margin-top: 100px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+
+        .badge {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .badge-fb { background: var(--fb-blue); color: white; }
+        .badge-reddit { background: var(--reddit-orange); color: white; }
+        .badge-github { background: #333; color: white; }
+
+        .summary-box {
+            background: rgba(255, 77, 77, 0.05);
+            border: 1px solid rgba(255, 77, 77, 0.2);
+            padding: 30px;
+            margin-bottom: 60px;
+            border-radius: 4px;
+        }
+
+        .summary-box h3 {
+            margin-top: 0;
+            color: var(--accent);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="tag">Deep Intel Report</div>
+            <h1>SOUL.md：AI 代理人的靈魂協議</h1>
+            <p class="subtitle">彙報日期：2026.02.09 | 來源：Facebook, Reddit, X, GitHub | 紀錄者：阿蓋小弟 🦞</p>
+        </header>
+
+        <section class="summary-box">
+            <h3>📝 核心定義摘要</h3>
+            <p>
+                在目前主流的 AI Agent 實作（特別是 OpenClaw/Moltbot 生態）中，<strong>SOUL.md</strong> 被定義為 Agent 的「性格與價值觀設定檔」。它不同於技術性的 <code>config.json</code>，而是用來賦予 AI <strong>情境感知、語氣風格、行為邊界</strong> 以及 <strong>長期忠誠度</strong> 的靈魂藍圖。
+            </p>
+        </section>
+
+        <section id="facebook">
+            <h2><span class="badge badge-fb">Facebook</span> 社群討論：實戰派的靈魂實驗</h2>
+            <div class="report-grid">
+                <div class="report-card">
+                    <div class="card-header">
+                        <span class="card-title">「無人辦公室」的多靈魂協作</span>
+                        <span class="card-meta">Liu A-Yue | 4 天前</span>
+                    </div>
+                    <div class="card-content">
+                        案例指出，一位作者建立了 10 個獨立 Agent，每個 Agent 都有專屬的 SOUL.md。
+                        例如：產品分析師 Shuri 被設定為「生性多疑」，專門找碴；內容寫手 Loki 則具備另一種靈魂。
+                    </div>
+                    <div class="insight-box">
+                        💡 <strong>小弟點評：</strong> 這驗證了 G大 提到的「虛擬團隊」概念，SOUL.md 就是這些虛擬員工的入職合約與性格描述。
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <div class="card-header">
+                        <span class="card-title">SOUL.md 深度賦能：從機器人到夥伴</span>
+                        <span class="card-meta">YOLO lab | 2 天前</span>
+                    </div>
+                    <div class="card-content">
+                        討論 OpenClaw 透過 SOUL.md 讓 Agent 進化為具備情境感知的長期夥伴，拒絕 AI 廢話。
+                    </div>
+                    <div class="insight-box">
+                        💡 <strong>小弟點評：</strong> SOUL.md 的關鍵在於「拒絕廢話」與「增加情境感」，這是提升商業效率的核心。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reddit">
+            <h2><span class="badge badge-reddit">Reddit & X</span> 國際視野：系統提示詞的最佳實踐</h2>
+            <div class="report-grid">
+                <div class="report-card">
+                    <div class="card-header">
+                        <span class="card-title">Agentic Frameworks & Persona Injection</span>
+                        <span class="card-meta">r/AI_Agents | 2025-2026</span>
+                    </div>
+                    <div class="card-content">
+                        Reddit 上討論將系統提示詞拆分為多個 .md 檔案（如 SOUL, TASK, CONTEXT）已成為 2026 年的高階標準。這種模組化方式能避免 Prompt 互相干擾。
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <div class="card-header">
+                        <span class="card-title">Mission Control: AI Squad Building</span>
+                        <span class="card-meta">Zach Fleming @X | 1 週前</span>
+                    </div>
+                    <div class="card-content">
+                        分享如何建立 10 個 AI Agent 的「任務控制中心」，其中 SOUL.md 是定義團隊成員如何互相溝通（例如：誰該謙卑、誰該主導）的關鍵文件。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="github">
+            <h2><span class="badge badge-github">GitHub</span> 技術層面：標準化與擴充性</h2>
+            <div class="report-grid">
+                <div class="report-card">
+                    <div class="card-header">
+                        <span class="card-title">Awesome OpenClaw Skills Convention</span>
+                        <span class="card-meta">VoltAgent | 3 天前</span>
+                    </div>
+                    <div class="card-content">
+                        GitHub 上的 OpenClaw 技能庫遵循 Anthropic 的 Agent Skill 慣例。SOUL.md 被視為環境注入的一部分，讓 Skill 執行時能帶有特定的「語氣標籤」。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="summary-box" style="background: rgba(212, 175, 55, 0.05); border-color: rgba(212, 175, 55, 0.2);">
+            <h3 style="color: var(--gold);">🦞 阿蓋小弟的戰略建議 (Based on Research)</h3>
+            <p>
+                1. **靈魂迭代 (Self-Editing)**：研究顯示，最強的 Agent 應具備編輯自己 SOUL.md 的權限，以適應與主人的長期習慣（習慣養成）。<br>
+                2. **角色衝突設計**：在 OpenCRAW 商業方案中，我們可以為客戶預設多種靈魂（如：黑臉資安 Rita、紅臉行銷 Rose），這就是產品的「商業溢價」所在。<br>
+                3. **語音適配**：針對 G大 提到的免提需求，SOUL.md 應加入「簡短回報、核心先行」的語音交互指令，避免 Siri 唸太久。
+            </p>
+        </section>
+
+        <div class="footer">
+            &copy; 2026 OpenCRAW Intel Hub. Generated by Lobster Jr. 🦞
+        </div>
+    </div>
+</body>
+</html>

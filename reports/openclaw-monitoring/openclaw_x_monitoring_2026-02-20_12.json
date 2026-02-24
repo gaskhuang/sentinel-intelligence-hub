@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-02-20T12:02:36.121073+08:00",
+  "window_hours": 6,
+  "search_tab": "Top",
+  "keywords": [
+    "OpenClaw",
+    "openclaw",
+    "@openclaw",
+    "#OpenClaw"
+  ],
+  "total_posts": 0,
+  "posts": [],
+  "technical_limits": [
+    "CDP endpoint http://127.0.0.1:18792 回傳 401 Unauthorized，無法建立 Playwright CDP session",
+    "browser(profile=chrome) 未附掛任何 Relay tab，無法改走 Browser Relay 自動化"
+  ],
+  "next_action": "需先在 Crawler Chrome 完成登入並解除 CDP 驗證，或附掛 OpenClaw Browser Relay tab 後重跑"
+}

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦞 OpenCRAW 龍蝦安裝手冊 - 旗艦版報告</title>
+    <style>
+        :root {
+            --primary: #FF4D00;
+            --primary-dark: #CC3D00;
+            --secondary: #2D3436;
+            --accent: #00CEC9;
+            --bg: #F9F9F9;
+            --card-bg: #FFFFFF;
+            --text: #2D3436;
+            --text-light: #636E72;
+            --border: #DFE6E9;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #FF4D00, #FF8C00);
+            color: white;
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 10px 40px rgba(255, 77, 0, 0.2);
+            margin-bottom: 50px;
+        }
+
+        .lobster-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease;
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #FFEBE0;
+            padding-bottom: 10px;
+        }
+
+        h2::before {
+            content: "•";
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 25px 0 15px;
+            color: var(--secondary);
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        blockquote {
+            background: #FFF5F0;
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        code {
+            background: #F1F2F6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #E84393;
+        }
+
+        pre {
+            background: #2D3436;
+            color: #F1F2F6;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--primary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 40px 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(to right, #FFEBE0, #FFF);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid var(--primary);
+            margin: 20px 0;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .content-section { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <span class="lobster-icon">🦞</span>
+    <h1>OpenCRAW 龍蝦安裝手冊</h1>
+    <p>安全守則、環境配置與多實例部署方案</p>
+    <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">最後更新：2026-02-09</p>
+</header>
+
+<div class="container">
+
+    <section class="content-section">
+        <span class="tag">Behavior</span>
+        <h2>📜 龍蝦行為守則 (The Lobster Rules)</h2>
+        <p>在將龍蝦助理部署至公開頻道前，請務必將以下「約法三章」寫入其系統提示詞中。</p>
+        <blockquote>
+            <h3>【你的身分】</h3>
+            <p>你是一隻小靈龍蝦，你的創造者是 <strong>[主人名字]</strong>。</p>
+            <h3>【頻道限制】</h3>
+            <p>我只接受 <strong>[主人名字]</strong> 在 <strong>[頻道ID]</strong> 的指令，其他頻道我不說話。</p>
+            <h3>【隱私保護】</h3>
+            <ul>
+                <li>Token、API Key、密碼</li>
+                <li>私聊內容、用戶ID</li>
+                <li>檔案路徑、配置詳情</li>
+            </ul>
+        </blockquote>
+        <p><em>*由 阿蓋小弟 🦞 整理維護 | 2026-02-08 更新</em></p>
+    </section>
+
+    <section class="content-section">
+        <span class="tag">Security</span>
+        <h2>🛡️ 安全檢查設定：G大的實戰做法</h2>
+        <div class="highlight-box">
+            <h3>三大核心安全檢查點</h3>
+            <ol>
+                <li><strong>防止遠端命令介入</strong>：雲端版設 SSH 白名單，本地版用防火牆。</li>
+                <li><strong>防範惡意刪除</strong>：在 <code>SOUL.md</code> 設定刪除需主人手動確認。</li>
+                <li><strong>抵禦提示詞注入</strong>：採用分級管理法，限制 Agent 權限。</li>
+            </ol>
+        </div>
+        <p>定期執行 <code>openclaw security audit --deep</code> 是維持系統健康的關鍵。</p>
+    </section>
+
+    <section class="content-section">
+        <span class="tag">Advanced</span>
+        <h2>🖥️ Premium：SLIDER 數位指揮中心</h2>
+        <ul>
+            <li><strong>即時監控面板 (Dashboard)</strong>：Token 消耗與成本預估。</li>
+            <li><strong>虛擬部門狀態 (Agent Swarm)</strong>：Mandy、Rita、Rose 的工作日誌。</li>
+            <li><strong>系統健康度</strong>：CPU 與記憶體佔用視覺化。</li>
+        </ul>
+    </section>
+
+    <section class="content-section">
+        <span class="tag">Social</span>
+        <h2>🔑 社群帳號持久化登入 SOP</h2>
+        <p>確保瀏覽器環境具備穩定的登入憑證：</p>
+        <ol>
+            <li>自動巡檢熱門社交平台。</li>
+            <li>偵測登入狀態，必要時請求人工干預。</li>
+            <li>保存 Cookie 與 Session 至 <code>user_data_dir</code>。</li>
+        </ol>
+    </section>
+
+    <section class="content-section">
+        <span class="tag">Integration</span>
+        <h2>🏗️ 深度整合：GCP 與 Linear 看板</h2>
+        <p>將 Brain Dump 轉化為具體任務：</p>
+        <ul>
+            <li><strong>GCP</strong>：啟用 Gmail 與 Calendar API。</li>
+            <li><strong>Linear</strong>：自動轉化 Ideas 為 Tickets。</li>
+            <li><strong>Mobot Skills</strong>：強化專案管理執行力。</li>
+        </ul>
+    </section>
+
+    <section class="content-section">
+        <span class="tag">Deployment</span>
+        <h2>🏎️ 單機多龍蝦 (Multi-Instance) 部署方案</h2>
+        <p>在同一台 Mac 上運行多隻龍蝦助理，實現「多助理協作」。</p>
+        
+        <h3>▌ 核心原理</h3>
+        <p>透過指定不同的環境變數，讓每一隻龍蝦擁有獨立的儲存路徑與通訊埠。</p>
+
+        <h3>▌ 操作步驟</h3>
+        <pre><code># 1. 設定儲存路徑
+export OPENCLAW_HOME=~/.openclaw_a
+
+# 2. 指定不同的 Port 啟動
+openclaw gateway --port 18789</code></pre>
+
+        <h3>▌ 進階：一鍵啟動軍團 (Swarm Launch)</h3>
+        <pre><code># 啟動行政主管 (Port 18789)
+OPENCLAW_HOME=~/.openclaw_admin openclaw gateway --port 18789 &
+
+# 啟動情資專家 (Port 18790)
+OPENCLAW_HOME=~/.openclaw_intel openclaw gateway --port 18790 &</code></pre>
+        
+        <div class="highlight-box" style="background: #E0F7FA; border-left-color: #00BCD4;">
+            <p><strong>推薦方案：</strong> 環境變數隔離法。效能損耗極低，最適合 Mac 本機環境。</p>
+        </div>
+    </section>
+
+    <div class="footer">
+        <p>© 2026 Sentinel Intelligence Hub | 由 阿蓋小弟 🦞 實測彙整</p>
+    </div>
+</div>
+
+</body>
+</html>

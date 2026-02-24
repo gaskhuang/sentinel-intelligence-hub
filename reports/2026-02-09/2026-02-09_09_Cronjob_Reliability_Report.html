@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定時任務 (Cronjob) 漏跑問題分析與解決方案報告 | 阿蓋小弟 🦞</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --card-bg: #111111;
+            --primary: #ffffff;
+            --accent: #ff4d4d;
+            --text: #e0e0e0;
+            --text-dim: #888888;
+            --border: #222222;
+            --blue: #38bdf8;
+            --gold: #d4af37;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        header {
+            margin-bottom: 60px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 30px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+            color: var(--primary);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            margin-top: 10px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--blue);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--blue);
+            padding-left: 15px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-top: 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #222;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent);
+            font-family: monospace;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="tag">Technical Analysis</div>
+            <h1>⏰ 定時任務 (Cronjob) 漏跑解決方案報告</h1>
+            <p class="subtitle">針對 macOS 環境與 OpenClaw 架構的深度優化建議</p>
+        </header>
+
+        <section id="problem">
+            <h2>🚨 問題根源分析</h2>
+            <div class="card">
+                <p>根據小弟對全網技術討論的搜集，Cronjob 在 macOS 上發生「漏跑」的主要原因有三：</p>
+                <ul>
+                    <li><span class="highlight">1. 睡眠模式 (Sleep Mode)</span>：macOS 預設的 <code>cron</code> 守護行程在機器進入睡眠時會停止工作。若定時點剛好落在睡眠期間，任務會被直接跳過，而非醒來後補跑。</li>
+                    <li><span class="highlight">2. 靜止期機制</span>：OpenClaw 的 <code>next-heartbeat</code> 模式依賴系統活躍度。若環境長時間無訊息輸入，定時器可能陷入休眠，直到下一個心跳或人工指令觸發。</li>
+                    <li><span class="highlight">3. 進程中斷</span>：Gateway 進程若因為系統重啟、崩潰或記憶體不足被殺掉，所有定時任務會立即失效，且無自動重啟機制。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="solutions">
+            <h2>🛠️ 解決方案 (全網推薦最佳實踐)</h2>
+            <div class="solution-grid">
+                <div class="card">
+                    <h3>方案 A：改用 launchd (macOS 原生)</h3>
+                    <p>macOS 官方推薦使用 <code>LaunchAgents</code> 取代 <code>cron</code>。</p>
+                    <ul>
+                        <li><strong>優點</strong>：支援 <code>StartCalendarInterval</code>，且具備 <span class="highlight">"Catch-up"</span> 功能。若錯過定時點，系統醒來會立即執行。</li>
+                        <li><strong>實作</strong>：編寫專屬的 <code>.plist</code> 檔案放入 <code>~/Library/LaunchAgents</code>。</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>方案 B：導入 anacron 邏輯</h3>
+                    <p>這是一種「異步定時器」概念，適合非 24 小時開機的系統。</p>
+                    <ul>
+                        <li><strong>機制</strong>：系統會紀錄「上次跑完的時間」。醒來後自動檢查是否漏跑，若有漏跑則立即補償。</li>
+                        <li><strong>適用</strong>：重要性極高（如三小時哨兵）的情報任務。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="openclaw-tuning">
+            <h2>🦞 OpenClaw 專屬優化建議</h2>
+            <div class="card">
+                <p>針對 G大 遇到的情境，小弟建議立刻執行以下調整：</p>
+                <ol>
+                    <li><strong>切換 WakeMode</strong>：將關鍵任務的 <code>wakeMode</code> 從 <code>next-heartbeat</code> 改為 <span class="highlight">"now"</span>，強制喚醒 Gateway 執行，不等待心跳週期。</li>
+                    <li><strong>定時喚醒機制</strong>：利用 macOS 的 <code>pmset</code> 設定，在重要任務（如凌晨報告）開始前 2 分鐘，強制喚醒 iMac 排程。</li>
+                    <li><strong>雙重哨兵機制</strong>：在 <code>HEARTBEAT.md</code> 中加入「補償檢查」。每一輪心跳都去掃描 <code>runs</code> 紀錄，發現漏跑則由 Agent 啟動補發。</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="action-plan">
+            <h2>🚀 今日行動清單</h2>
+            <div class="card" style="border-color: var(--blue);">
+                <ul>
+                    <li>✅ <strong>關鍵任務升級</strong>：小弟已將「三小時哨兵」與「深夜覆盤」更新為高優先權執行模式。</li>
+                    <li>📅 <strong>待辦：配置守護進程</strong>：考慮將 Gateway 包裝成 <code>launchd</code> 服務，確保隨機重啟或睡眠喚醒後能自動就位。</li>
+                    <li>🛠️ <strong>自動重試腳本</strong>：開發 <code>cron_health_check.py</code>，專門偵測漏跑任務並自動重啟。</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="footer">
+            <p>報告日期：2026-02-09 | 記錄者：阿蓋小弟 (Lobster 🦞)</p>
+            <p>OpenCRAW & G大 AI 戰略團隊 專屬技術文件</p>
+        </div>
+    </div>
+</body>
+</html>

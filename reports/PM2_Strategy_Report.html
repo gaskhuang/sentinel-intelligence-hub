@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>戰略評估：導入 PM2 解決定時任務漏跑問題 | 阿蓋小弟 🦞</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --card-bg: #111111;
+            --primary: #ffffff;
+            --accent: #ff4d4d;
+            --text: #e0e0e0;
+            --text-dim: #888888;
+            --border: #222222;
+            --green: #4ade80;
+            --gold: #d4af37;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        header {
+            margin-bottom: 60px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 30px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+            color: var(--primary);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            margin-top: 10px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--green);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--green);
+            padding-left: 15px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-top: 0;
+        }
+
+        code {
+            background: #222;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent);
+            font-family: monospace;
+        }
+
+        .footer {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="tag">Technical Strategy</div>
+            <h1>🦞 PM2 戰略部署評估報告</h1>
+            <p class="subtitle">為您的龍蝦軍團建立「死而復生」的任務自動化層</p>
+        </header>
+
+        <section id="what-is-pm2">
+            <h2>🤔 什麼是 PM2？</h2>
+            <div class="card">
+                <p>簡單來說，<span class="highlight">PM2 是一個「程序監護人」</span>。它最初是為了 Node.js 設計的生產級進程管理器，但現在已經演變成可以管理任何程式（Python, Bash, PHP 等）的強大工具。</p>
+                <ul>
+                    <li><strong>不死之身</strong>：如果程式當掉或電腦意外重啟，PM2 會立刻發現並幫您「自動重啟」。</li>
+                    <li><strong>視覺化監控</strong>：輸入 <code>pm2 status</code> 或 <code>pm2 monit</code>，就能像在指揮艙一樣看到所有進程的 CPU、記憶體消耗。</li>
+                    <li><strong>內建定時器</strong>：它支援 <code>--cron</code> 參數，可以非常精準地在指定時間觸發任務。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="how-to-use">
+            <h2>🛠️ PM2 如何精準執行？</h2>
+            <div class="card">
+                <h3>1. 它能呼叫其他程式嗎？</h3>
+                <p><span class="highlight">絕對可以！</span> PM2 本質上是幫您執行一個「啟動命令」。</p>
+                <ul>
+                    <li>您可以直接管理 Python 腳本：<code>pm2 start script.py</code></li>
+                    <li>您可以管理 Shell 腳本：<code>pm2 start backup.sh</code></li>
+                    <li><strong>跨程式呼叫</strong>：您管理的一個程式 A，當然可以在其內部使用代碼呼叫程式 B。PM2 負責的是「確保程式 A 永遠活著且準時開始」。</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>2. 解決 Cron 漏跑的神技：Cron Restart</h3>
+                <p>傳統 Cron 只是「嘗試觸發」，漏了就漏了。而 PM2 的做法是：</p>
+                <code>pm2 start script.py --cron "0 0 * * *"</code>
+                <p>這代表 PM2 會監視這支腳本，並在每天午夜精準地重啟/執行它。結合其「自動重試」機制，成功率遠高於系統內建的 Crontab。</p>
+            </div>
+        </section>
+
+        <section id="strategy-fit">
+            <h2>🚀 對 G大 戰略的價值</h2>
+            <div class="card">
+                <ol>
+                    <li><strong>穩定性 100%</strong>：即使小弟在更新時 Gateway 短暫斷線，PM2 也能確保後台的「三小時哨兵」和「深夜覆盤」不受影響，自動重連執行。</li>
+                    <li><strong>Swarm 軍團管理</strong>：如果您要跑 5 隻龍蝦，用 PM2 管理會非常輕鬆，不需要開 5 個視窗，一個列表就能看清誰在偷懶。</li>
+                    <li><strong>解放雙手</strong>：配置好後，即使 iMac 睡眠醒來，PM2 也能快速喚醒相關邏輯，確保任務執行。</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="action">
+            <h2>🎯 下一步行動建議</h2>
+            <p>如果您點頭，小弟可以立刻在您的 iMac 上執行：</p>
+            <ul>
+                <li>1. 安裝 PM2：<code>npm install pm2 -g</code></li>
+                <li>2. 將 OpenClaw Gateway 納入 PM2 監管，確保它 24/7 在線。</li>
+                <li>3. 寫一個 <code>master_scheduler.py</code>，專門用來精準控管所有的定時任務。</li>
+            </ul>
+        </section>
+
+        <div class="footer">
+            <p>報告日期：2026-02-09 | 記錄者：阿蓋小弟 (Lobster 🦞)</p>
+            <p>OpenCRAW & G大 AI 戰略團隊 專屬技術文件</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "task": "Threads OpenClaw 週監控",
+  "time_range": {
+    "start": "2026-02-17T00:00:00+08:00",
+    "end": "2026-02-20T23:59:59+08:00"
+  },
+  "keywords": ["OpenClaw", "openclaw", "@openclaw", "#OpenClaw"],
+  "platform": "Threads",
+  "total_posts": 0,
+  "posts": [],
+  "method": {
+    "attempts": [
+      "Threads 官方搜尋頁（web fetch）",
+      "搜尋引擎反查（DuckDuckGo site:threads.net）",
+      "CDP 連線 18792（Playwright connect_over_cdp）"
+    ],
+    "status": "blocked_or_no_public_results"
+  },
+  "limitations": [
+    "Threads 搜尋結果高度依賴前端動態渲染與登入態；無法由 web_fetch 直接取得貼文清單。",
+    "CDP 18792 回傳 401（非可直接接入的 DevTools endpoint），因此無法進行既有登入態瀏覽器自動化採集。",
+    "在可公開索引來源中，未檢出可驗證且落在指定時段的 OpenClaw 相關 Threads 貼文。"
+  ],
+  "sentiment_summary": {
+    "positive": 0,
+    "neutral": 0,
+    "negative": 0
+  },
+  "generated_at": "2026-02-20T03:55:00+08:00"
+}

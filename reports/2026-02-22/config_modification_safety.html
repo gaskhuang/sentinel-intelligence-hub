@@ -1,0 +1,43 @@
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-TW&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Config 修改安全原則 - 2026-02-22&lt;/title&gt;
+  &lt;style&gt;
+    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+    h1 { color: #d93025; }
+    .safety { background: #fff3cd; padding: 20px; border-left: 4px solid #d93025; }
+    .date { font-weight: bold; color: #666; }
+    footer { margin-top: 40px; text-align: center; color: #999; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;🚫 Config 修改安全原則&lt;/h1&gt;
+  &lt;p class=&quot;date&quot;&gt;生效時間：2026-02-22 03:02 GMT+8 (Asia/Taipei)&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;發起人&lt;/strong&gt;：G 大 (@gskgino)&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;執行者&lt;/strong&gt;：阿蓋總部 (HQ - Claude Sonnet 4.6)&lt;/p&gt;
+  
+  &lt;div class=&quot;safety&quot;&gt;
+    &lt;h2&gt;原則內容&lt;/h2&gt;
+    &lt;p&gt;&lt;strong&gt;嚴禁自動修正 OpenClaw config&lt;/strong&gt;。任何涉及 config 或 gateway 的變更動作，包括但不限於：&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;config.get / config.schema / config.apply / config.patch&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;gateway restart / update.run&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;其他可能觸發系統重啟或設定變更的工具&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;**執行條件**：需 G大 明確確認（e.g. 「確認執行」）後，方可進行。否則暫停並回報。&lt;/p&gt;
+    &lt;p&gt;&lt;em&gt;違反視為最高級安全事故，立即中止並記錄。&lt;/em&gt;&lt;/p&gt;
+    
+    &lt;h2&gt;與既有規則整合&lt;/h2&gt;
+    &lt;p&gt;強化 OpenClaw Self-Update 政策：僅限明確請求時執行。&lt;/p&gt;
+    
+    &lt;h2&gt;此為第二筆協議執行&lt;/h2&gt;
+    &lt;p&gt;自動觸發 GitHub 同步（#github-sync）。&lt;/p&gt;
+  &lt;/div&gt;
+  
+  &lt;footer&gt;
+    Powered by OpenClaw Dragon Lobster Army 🦞 | Last Update: 2026-02-22 03:xx
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;

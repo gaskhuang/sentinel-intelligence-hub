@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G大萬能戰情室 | HostiFi Wi-Fi 實時巡檢報告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #050505; color: #e0e0e0; }
+        .card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1.5rem; }
+        .status-badge { padding: 4px 12px; border-radius: 9999px; font-weight: 900; font-size: 0.75rem; }
+        .offline { background: #ff3e3e; color: white; }
+        .online { background: #22c55e; color: white; }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+    <div class="max-w-5xl mx-auto">
+        <header class="mb-12 border-b border-white/10 pb-8">
+            <div class="flex justify-between items-center mb-4">
+                <span class="status-badge online">SYSTEM ACTIVE</span>
+                <span class="text-gray-500 text-sm">最後更新：2026-02-10 09:05</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-black mb-4">HostiFi 雲端巡檢即時報</h1>
+            <p class="text-xl text-gray-400">目前監控總量：<span class="text-white">748 顆 AP</span></p>
+        </header>
+
+        <!-- Offline Alerts -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-black mb-6 flex items-center">
+                <span class="w-2 h-8 bg-red-600 mr-4"></span>⚠️ 異常離線警報
+            </h2>
+            <div class="grid gap-4">
+                <div class="card p-6 flex justify-between items-center">
+                    <div>
+                        <div class="font-bold text-white">國父B f4:92:bf:a5:e8:54</div>
+                        <div class="text-sm text-gray-500">場域：不分區_Treerful-小樹屋 | IP: 192.168.88.254</div>
+                    </div>
+                    <span class="status-badge offline">DISCONNECTED</span>
+                </div>
+                <div class="card p-6 flex justify-between items-center">
+                    <div>
+                        <div class="font-bold text-white">國小一 後 78:45:58:4b:52:d0</div>
+                        <div class="text-sm text-gray-500">場域：中和_銘文補教 MW | IP: 10.1.1.113</div>
+                    </div>
+                    <span class="status-badge offline">DISCONNECTED</span>
+                </div>
+                <div class="card p-6 flex justify-between items-center">
+                    <div>
+                        <div class="font-bold text-white">國小一 前 78:45:58:4b:73:1c</div>
+                        <div class="text-sm text-gray-500">場域：中和_銘文補教 MW | IP: 10.1.1.112</div>
+                    </div>
+                    <span class="status-badge offline">DISCONNECTED</span>
+                </div>
+                <div class="card p-6 flex justify-between items-center">
+                    <div>
+                        <div class="font-bold text-white">U6 LR (24:5a:4c:a9:80:6c)</div>
+                        <div class="text-sm text-gray-500">場域：Idea-Plan-Space 典空間 | IP: 192.168.88.82</div>
+                    </div>
+                    <span class="status-badge offline">DISCONNECTED</span>
+                </div>
+                <div class="card p-6 flex justify-between items-center">
+                    <div>
+                        <div class="font-bold text-white">AP2-Office(吊隱冷氣管道)</div>
+                        <div class="text-sm text-gray-500">場域：Cooby _酷比數位科技 | IP: 192.168.88.253</div>
+                    </div>
+                    <span class="status-badge offline">DISCONNECTED</span>
+                </div>
+                <div class="card p-6 flex justify-between items-center">
+                    <div>
+                        <div class="font-bold text-white">AP1-大門處(牆面)</div>
+                        <div class="text-sm text-gray-500">場域：Cooby _酷比數位科技 | IP: 192.168.88.244</div>
+                    </div>
+                    <span class="status-badge offline">DISCONNECTED</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Block -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-black mb-6 flex items-center">
+                <span class="w-2 h-8 bg-blue-600 mr-4"></span>🤖 診斷進度回報
+            </h2>
+            <div class="card p-8">
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✅</span>
+                        <span>已成功登入 **HostiFi Dashboard**，獲取 748 顆設備之即時清單。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✅</span>
+                        <span>已執行 **Device Export**，初步識別出 6 顆關鍵離線 AP。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-red-500 mr-2">❌</span>
+                        <span>**UniFi Controller 登入受阻**：使用 G大 提供的帳密登入控制器 (`:8443`) 提示失敗。</span>
+                    </li>
+                </ul>
+                <div class="mt-8 p-4 bg-red-600/10 border border-red-600/20 rounded-xl">
+                    <p class="text-sm font-bold text-white mb-2">需要 G大 協助：</p>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        控制器 (`https://m09829.hostifi.com:8443`) 的帳密可能與 HostiFi 官網不同，或者有開啟 MFA。請協助確認控制器的登入資訊，阿蓋小弟才能深入檢查設定檔並執行自動修復。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-600 text-[10px] uppercase tracking-widest pb-12">
+            Generated by 阿蓋小弟 | G大萬能戰情室
+        </footer>
+    </div>
+</body>
+</html>

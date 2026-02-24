@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龍蝦戰勤官：25門重型指令百科全書</title>
+    <style>
+        :root {
+            --lobster-red: #ff4757;
+            --deep-sea: #2f3542;
+            --gold: #ffa502;
+            --shell: #f1f2f6;
+        }
+        body { font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; background-color: var(--shell); color: var(--deep-sea); line-height: 1.8; margin: 0; padding: 0; }
+        header { background: linear-gradient(135deg, var(--deep-sea), #000); color: white; padding: 60px 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { margin: 0; font-size: 2.8em; letter-spacing: 2px; }
+        .hero-subtitle { color: var(--gold); font-weight: bold; margin-top: 15px; font-size: 1.2em; }
+        .container { max-width: 1100px; margin: -40px auto 40px; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .cmd-card { border: 1px solid #eee; padding: 25px; border-radius: 15px; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .cmd-card:hover { transform: translateY(-5px); border-color: var(--lobster-red); box-shadow: 0 5px 15px rgba(255,71,87,0.1); }
+        .cmd-name { color: var(--lobster-red); font-size: 1.4em; font-weight: bold; font-family: 'Courier New', Courier, monospace; margin-bottom: 10px; display: block; }
+        .cmd-use { font-weight: bold; color: #57606f; display: block; margin-bottom: 8px; }
+        .cmd-value { font-size: 0.95em; color: #2f3542; border-top: 1px dashed #ddd; padding-top: 10px; margin-top: 10px; }
+        .cmd-value b { color: #ff6b81; }
+        .category-label { position: absolute; top: 10px; right: 10px; font-size: 0.7em; background: #eee; padding: 2px 8px; border-radius: 10px; color: #777; text-transform: uppercase; }
+        footer { text-align: center; padding: 40px; color: #a4b0be; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🦞 龍蝦戰勤指令百科</h1>
+        <div class="hero-subtitle">OpenCRAW 指揮系統：25 門變現重砲全解析</div>
+    </header>
+    <div class="container">
+        <p style="text-align:center; font-size: 1.1em; margin-bottom: 40px;">在數位養殖場中，每一個「/」都是一次精準的商業打擊。這 25 個指令是 G大 戰略體系的核心靈魂。</p>
+        <div class="grid">
+            <!-- 1-5 核心調度 -->
+            <div class="cmd-card">
+                <span class="category-label">核心調度</span>
+                <span class="cmd-name">/new</span>
+                <span class="cmd-use">用途：重啟戰場環境</span>
+                <div class="cmd-value"><b>商業價值：</b>快速切換戰略主題，確保新專案不被舊數據污染。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">核心調度</span>
+                <span class="cmd-name">/status</span>
+                <span class="cmd-use">用途：戰況成本盤點</span>
+                <div class="cmd-value"><b>商業價值：</b>即時監控 Token 消耗與模型成本，掌握 ROI。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">核心調度</span>
+                <span class="cmd-name">/reasoning</span>
+                <span class="cmd-use">用途：開啟邏輯推演</span>
+                <div class="cmd-value"><b>商業價值：</b>透視龍蝦的大腦運作，優化決策路徑。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">核心調度</span>
+                <span class="cmd-name">/stop</span>
+                <span class="cmd-use">用途：緊急中止運算</span>
+                <div class="cmd-value"><b>商業價值：</b>發現策略偏差或成本失控時，一鍵止損。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">核心調度</span>
+                <span class="cmd-name">/compact</span>
+                <span class="cmd-use">用途：龍蝦精華協議</span>
+                <div class="cmd-value"><b>商業價值：</b>壓縮記憶，提煉商業金句，維持大腦 24H 巔峰狀態。</div>
+            </div>
+
+            <!-- 6-11 NotebookLM -->
+            <div class="cmd-card">
+                <span class="category-label">多媒體重砲</span>
+                <span class="cmd-name">/nb-s</span>
+                <span class="cmd-use">用途：YouTube 轉簡報</span>
+                <div class="cmd-value"><b>商業價值：</b>免看長影片，自動產出具「採購衝動」的 PDF 投影片。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">多媒體重砲</span>
+                <span class="cmd-name">/nb-v</span>
+                <span class="cmd-use">用途：內容提煉影音</span>
+                <div class="cmd-value"><b>商業價值：</b>自動剪輯短影音，快速佔領社群流量高地。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">多媒體重砲</span>
+                <span class="cmd-name">/nb-p</span>
+                <span class="cmd-use">用途：商務 Podcast</span>
+                <div class="cmd-value"><b>商業價值：</b>讓客戶在開車時聽完你的品牌分析。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">多媒體重砲</span>
+                <span class="cmd-name">/nb-list</span>
+                <span class="cmd-use">用途：雲端資產清單</span>
+                <div class="cmd-value"><b>商業價值：</b>快速檢索過往所有採集到的情報筆記。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">多媒體重砲</span>
+                <span class="cmd-name">/nb-login</span>
+                <span class="cmd-use">用途：身分權限認證</span>
+                <div class="cmd-value"><b>商業價值：</b>確保戰勤官具備合法的雲端開火權利。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">多媒體重砲</span>
+                <span class="cmd-name">/nb-download</span>
+                <span class="cmd-use">用途：資產本地化</span>
+                <div class="cmd-value"><b>商業價值：</b>將雲端情報轉化為實體檔案，隨時準備發送給客戶。</div>
+            </div>
+
+            <!-- 12-16 兵團與自動化 -->
+            <div class="cmd-card">
+                <span class="category-label">自動化兵團</span>
+                <span class="cmd-name">/spawn</span>
+                <span class="cmd-use">用途：派出身分龍蝦</span>
+                <div class="cmd-value"><b>商業價值：</b>多線並行，同時處理 X、Threads、LinkedIn 採集。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">自動化兵團</span>
+                <span class="cmd-name">/sessions</span>
+                <span class="cmd-use">用途：分身監控中心</span>
+                <div class="cmd-value"><b>商業價值：</b>管理多個子代理人，掌握兵團作戰進度。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">自動化兵團</span>
+                <span class="cmd-name">/cron</span>
+                <span class="cmd-use">用途：戰勤排程系統</span>
+                <div class="cmd-value"><b>商業價值：</b>老闆在睡覺，龍蝦在盯盤，實現真正的 24/7 監控。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">自動化兵團</span>
+                <span class="cmd-name">/tts</span>
+                <span class="cmd-use">用途：語音密報啟動</span>
+                <div class="cmd-value"><b>商業價值：</b>洗澡、開車、運動時，用語音聽取商業情報結算。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">自動化兵團</span>
+                <span class="cmd-name">/skill</span>
+                <span class="cmd-use">用途：特定技能調遣</span>
+                <div class="cmd-value"><b>商業價值：</b>強制叫出「104 獵才」或「GitHub 部署」等專項工具。</div>
+            </div>
+
+            <!-- 17-21 安全與權限 -->
+            <div class="cmd-card">
+                <span class="category-label">安全風控</span>
+                <span class="cmd-name">/approve</span>
+                <span class="cmd-use">用途：准予開火授權</span>
+                <div class="cmd-value"><b>商業價值：</b>老闆掌握最後一道防線，確保敏感資料不外流。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">安全風控</span>
+                <span class="cmd-name">/reject</span>
+                <span class="cmd-use">用途：指令駁回重做</span>
+                <div class="cmd-value"><b>商業價值：</b>對於不具變現價值的產出，第一時間打槍優化。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">安全風控</span>
+                <span class="cmd-name">/gateway</span>
+                <span class="cmd-use">用途：系統底層維護</span>
+                <div class="cmd-value"><b>商業價值：</b>重啟服務中心，解決任何連線閃退問題。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">安全風控</span>
+                <span class="cmd-name">/undo</span>
+                <span class="cmd-use">用途：撤銷上一步</span>
+                <div class="cmd-value"><b>商業價值：</b>商業決策失誤時的「後悔藥」，快速回到上一個狀態。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">安全風控</span>
+                <span class="cmd-name">/history</span>
+                <span class="cmd-use">用途：決策歷史回溯</span>
+                <div class="cmd-value"><b>商業價值：</b>翻閱過往指令，確保每一次變現路徑都有據可查。</div>
+            </div>
+
+            <!-- 22-25 node 控制 -->
+            <div class="cmd-card">
+                <span class="category-label">物理採集</span>
+                <span class="cmd-name">/camera</span>
+                <span class="cmd-use">用途：遠端影像捕捉</span>
+                <div class="cmd-value"><b>商業價值：</b>監控辦公室或實體養殖場狀況，數據可視化。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">物理採集</span>
+                <span class="cmd-name">/screen</span>
+                <span class="cmd-use">用途：遠端畫面紀錄</span>
+                <div class="cmd-value"><b>商業價值：</b>錄製自動化流程示範影片，作為教學資產。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">物理採集</span>
+                <span class="cmd-name">/location</span>
+                <span class="cmd-use">用途：精準地理採集</span>
+                <div class="cmd-value"><b>商業價值：</b>根據地理位置抓取特定地區的商業動態。</div>
+            </div>
+            <div class="cmd-card">
+                <span class="category-label">物理採集</span>
+                <span class="cmd-name">/search</span>
+                <span class="cmd-use">用途：萬能情報檢索</span>
+                <div class="cmd-value"><b>商業價值：</b>全網情報搜尋，找出隱藏在深海中的變現機會。</div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2026 阿蓋龍蝦養殖場 | G大 指揮中心 | OpenCRAW Project
+    </footer>
+</body>
+</html>

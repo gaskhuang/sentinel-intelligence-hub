@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>OpenCRAW 規格對比視覺方案</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;900&family=Noto+Sans+TC:wght@400;900&display=swap');
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        .canvas { width: 1200px; height: 630px; background: linear-gradient(135deg, #050505 0%, #1a0000 100%); border: 8px solid #ff3e3e; position: relative; font-family: 'Outfit', 'Noto Sans TC', sans-serif; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .bg-text { position: absolute; font-size: 200px; font-weight: 900; color: rgba(255, 62, 62, 0.03); z-index: 1; top: 50%; left: 50%; transform: translate(-50%, -50%); white-space: nowrap; pointer-events: none; }
+        .container { z-index: 10; text-align: center; width: 100%; }
+        h1 { font-size: 80px; font-weight: 900; margin: 0; letter-spacing: -2px; background: linear-gradient(to bottom, #ffffff, #ff3e3e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .subtitle { font-size: 30px; color: #888; font-weight: 300; margin-bottom: 50px; }
+        .grid { display: flex; gap: 40px; justify-content: center; padding: 0 40px; }
+        .card { width: 450px; padding: 40px; border-radius: 35px; border: 2px solid rgba(255,255,255,0.05); position: relative; transition: all 0.5s ease; overflow: hidden; background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); }
+        .card.lite { border-color: rgba(64, 150, 255, 0.3); }
+        .card.elite { border-color: #ff3e3e; box-shadow: 0 0 50px rgba(255,62,62,0.15); }
+        .badge { position: absolute; top: 20px; right: 20px; padding: 5px 15px; border-radius: 99px; font-size: 12px; font-weight: 900; text-transform: uppercase; }
+        .lite .badge { background: #4096ff; color: white; }
+        .elite .badge { background: #ff3e3e; color: white; }
+        h2 { font-size: 45px; margin: 0 0 20px 0; font-weight: 900; }
+        ul { list-style: none; padding: 0; text-align: left; }
+        li { font-size: 20px; margin-bottom: 12px; color: #ccc; display: flex; align-items: center; }
+        li::before { content: '●'; margin-right: 10px; font-size: 14px; }
+        .lite li::before { color: #4096ff; }
+        .elite li::before { color: #ff3e3e; }
+        .price { margin-top: 30px; font-size: 32px; font-weight: 900; letter-spacing: 1px; }
+        .lite .price { color: #4096ff; }
+        .elite .price { color: #ff3e3e; }
+        .lobster-icon { position: absolute; bottom: -20px; right: -20px; font-size: 150px; opacity: 0.1; transform: rotate(-20deg); }
+    </style>
+</head>
+<body>
+    <div class="canvas">
+        <div class="bg-text">OPEN CRAW</div>
+        <div class="container">
+            <h1>LOBSTER SELECTION</h1>
+            <div class="subtitle">大龍蝦 vs 小龍蝦：誰才是你的數位真命天子？</div>
+            <div class="grid">
+                <div class="card lite">
+                    <div class="badge">FOUNDATION</div>
+                    <h2>✅ 小龍蝦</h2>
+                    <ul>
+                        <li>LINE / TG 自動化回覆</li>
+                        <li>FB / Threads 自動定時發文</li>
+                        <li>每日財務資產自動結算</li>
+                    </ul>
+                    <div class="price">NT$ 5,000 up</div>
+                    <div class="lobster-icon">🦞</div>
+                </div>
+                <div class="card elite">
+                    <div class="badge">ELITE AGENT</div>
+                    <h2>🔥 大龍蝦</h2>
+                    <ul>
+                        <li>AI 自動寫程式 & 修復 Bug</li>
+                        <li>單機多龍蝦 Swarm 協作</li>
+                        <li>長文件深度分析與多模態</li>
+                    </ul>
+                    <div class="price">NT$ 12,000 up</div>
+                    <div class="lobster-icon">🦞</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

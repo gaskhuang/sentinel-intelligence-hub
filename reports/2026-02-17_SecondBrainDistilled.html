@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龍蝦第二大腦精華提煉報告 (2026-02-17)</title>
+    <style>
+        :root {
+            --primary: #e63946;
+            --secondary: #457b9d;
+            --accent: #f1faee;
+            --dark: #1d3557;
+            --text: #2b2d42;
+        }
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        header {
+            border-bottom: 4px solid var(--primary);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+        h1 { color: var(--dark); margin: 0; font-size: 2.2em; }
+        h2 { color: var(--secondary); border-left: 6px solid var(--primary); padding-left: 15px; margin-top: 40px; }
+        h3 { color: var(--dark); margin-top: 25px; }
+        .badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .card {
+            background: var(--accent);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid var(--secondary);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th { background-color: var(--dark); color: white; }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .quote {
+            font-style: italic;
+            color: #555;
+            background: #fff;
+            padding: 10px 20px;
+            border-left: 4px solid #ccc;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="badge">龍蝦精華協議 V1.0</span>
+            <h1>🦞 第二大腦：精華提煉報告</h1>
+            <p>存檔日期：2026-02-17 | 提煉範圍：System, Strategy, Automation</p>
+        </header>
+
+        <section>
+            <h2>🛡️ 系統安全：零密鑰部署規範</h2>
+            <div class="card">
+                <h3>Amazon Bedrock 安全介入方案</h3>
+                <p>為了解決 <code>models.json</code> 明文儲存密鑰的風險，全面導入 <strong>IAM + Identity Center (SSO)</strong> 機制。</p>
+                <ul>
+                    <li><strong>核心優勢</strong>：徹底擺脫 API KEY；SSO 憑證具備自動失效期（12HR）。</li>
+                    <li><strong>執行指令</strong>：透過 Kiro CLI 生成最小權限 <code>BedrockInvoke</code>。</li>
+                </ul>
+                <p class="quote">「Bedrock 仍然是我認為最適合拿來接入龍蝦的 model provider，沒有之一。」</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>🚀 AI 商業戰略與自動化</h2>
+            <h3>1. Claude Cowork 本地 SEO 協議</h3>
+            <p>運用 AI 進行自動化排名競爭，實現 90 天內超車對手：</p>
+            <ul>
+                <li><strong>對手破綻分析</strong>：掃描 Google 商家檔案與網站，挖掘關鍵字漏洞。</li>
+                <li><strong>本地地標注入</strong>：自動優化服務頁面，強化「附近搜尋」地理關聯度。</li>
+                <li><strong>結構化資料健檢</strong>：自動生成 JSON-LD 標記，優先處理高權重 Schema。</li>
+            </ul>
+
+            <h3>2. GAS + AI 財務自動化系統</h3>
+            <p>針對小公司設計的自動化對帳解決方案：</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>模組</th>
+                        <th>功能亮點</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>營收對帳</strong></td>
+                        <td>一鍵匯入多通路營收，自動平台拆帳。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>成本核算</strong></td>
+                        <td>BOM 表自動換算，成本權責發生制。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>憑證歸戶</strong></td>
+                        <td>Email 帳單自動解析，電子發票自動歸戶。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>🧠 知識資產精選</h2>
+            <div class="card" style="border-left-color: var(--primary);">
+                <ul>
+                    <li><strong>TrigglyX</strong>：專為 Moltbot 設計的 macOS 排程神器。</li>
+                    <li><strong>Video Wrapper</strong>：自媒體影片自動化分析與風格包裝工具。</li>
+                    <li><strong>OpenClaw 指令</strong>：善用 <code>/g3f</code>, <code>/g3p</code>, <code>/models</code> 進行高效切換。</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="footer">
+            報告由 OpenClaw AI 助理自動生成<br>
+            © 2026 Lobster Intelligence Protocol
+        </div>
+    </div>
+</body>
+</html>
