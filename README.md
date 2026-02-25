@@ -73,6 +73,7 @@ G大專屬的數位情報與自動化報告中心。
 | 2026-02-22 | Config 修改安全原則 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-22/config_modification_safety.html) |
 | 2026-02-22 | NotebookLM 指令協議 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-22/notebooklm_commands_protocol.html) |
 | 2026-02-22 | OpenCRAW 每日戰情報告 03:07 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-22/openclaw_daily_brief_0307.html) |
+| 2026-02-26 | X 平台智能分析 (DeepSRT 風格) | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-26/x_monitor_20260226_0337.html) |
 | 2026-02-24 | 每日覆盤報告 (Nightly Routine) | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-24/nightly_routine_report.html) |
 
 ---
