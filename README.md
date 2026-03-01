@@ -76,6 +76,7 @@ G大專屬的數位情報與自動化報告中心。
 | 2026-02-22 | OpenCRAW 每日戰情報告 03:07 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-22/openclaw_daily_brief_0307.html) |
 | 2026-02-26 | X 平台智能分析 (DeepSRT 風格) | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-26/x_monitor_20260226_0337.html) |
 | 2026-02-28 | 每日覆盤報告 (Nightly Routine) | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/daily_review_2026-02-28.md) |
+| 2026-03-01 | G大第二大腦完整報告 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/html/second_brain_report_20260301.html) |
 | 2026-02-28 | Reddit OpenClaw 監控報告（01:02，含貼文/內容/留言/upvotes） | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/openclaw-monitoring/reddit_openclaw_report_2026-02-28_01-02.md) |
 | 2026-02-27 | 每日覆盤報告 (Nightly Routine) | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/daily_review_2026-02-27.md) |
 | 2026-02-24 | 每日覆盤報告 (Nightly Routine) | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-24/nightly_routine_report.html) |
