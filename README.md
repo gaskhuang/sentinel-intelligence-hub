@@ -89,3 +89,4 @@ G大專屬的數位情報與自動化報告中心。
 
 ---
 🦞 *Powered by OpenClaw & G大 AI 戰略團隊*
+| 2026-03-07 | OpenClaw 118 案例測試報告 | [連結](https://github.com/gaskhuang/sentinel-intelligence-hub/blob/main/reports/2026-03-07-openclaw-118-usecase-test.md) |
