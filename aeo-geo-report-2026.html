@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEO & GEO 深度研究報告 | 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #06b6d4;
+            --accent: #f59e0b;
+            --dark: #1e293b;
+            --darker: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            --gradient-2: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --gradient-3: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 8rem 2rem 4rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(245, 158, 11, 0.1) 0%, transparent 40%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(1deg); }
+            66% { transform: translate(-20px, 20px) rotate(-1deg); }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.5rem;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .hero-badge i {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+
+        .hero-meta-item i {
+            color: var(--primary);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 2rem;
+            background: rgba(99, 102, 241, 0.05);
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .stats-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 16px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.2);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            color: var(--gray);
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: var(--gradient-1);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            overflow-x: auto;
+            display: block;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            min-width: 600px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .comparison-table th {
+            background: rgba(99, 102, 241, 0.2);
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .comparison-table tr:hover td {
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Case Studies */
+        .case-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-1);
+        }
+
+        .case-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 4rem;
+            font-weight: 900;
+            opacity: 0.1;
+            line-height: 1;
+        }
+
+        .case-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(99, 102, 241, 0.2);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .case-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .case-result {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            margin: 1rem 0;
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        /* Tools Section */
+        .tool-card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .tool-card:hover {
+            border-color: rgba(6, 182, 212, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .tool-rating {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .tool-desc {
+            color: var(--gray);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .tool-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* Strategy Section */
+        .strategy-card {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .strategy-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .strategy-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .code-block {
+            background: var(--darker);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-1);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            transform: translateX(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            border-top: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-copy {
+            color: var(--gray);
+            font-size: 0.875rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.5;
+            line-height: 1;
+        }
+
+        .highlight-text {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--light);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-author {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--gray);
+        }
+
+        .checklist li::before {
+            content: '✓';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            background: var(--success);
+            border-radius: 50%;
+            font-size: 0.75rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        /* Priority badges */
+        .priority {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .priority-p0 {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        .priority-p1 {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--accent);
+        }
+
+        .priority-p2 {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+        }
+
+        .priority-p3 {
+            background: rgba(6, 182, 212, 0.2);
+            color: var(--secondary);
+        }
+
+        /* Data table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.875rem;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .data-table th {
+            background: rgba(99, 102, 241, 0.2);
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .data-table tr:hover td {
+            background: rgba(99, 102, 241, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">🦞 AEO×GEO Report</div>
+            <ul class="nav-links">
+                <li><a href="#knowledge">知識地圖</a></li>
+                <li><a href="#trends">趨勢預測</a></li>
+                <li><a href="#cases">成功案例</a></li>
+                <li><a href="#tools">推薦工具</a></li>
+                <li><a href="#strategies">優化策略</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-rocket"></i>
+                2026 年數位行銷必讀
+            </div>
+            <h1>
+                <span>AEO</span> & <span>GEO</span><br>
+                深度研究報告
+            </h1>
+            <p class="hero-subtitle">
+                從「讓人找到你」到「讓 AI 替你說話」<br>
+                掌握 AI 搜尋時代的關鍵優化策略
+            </p>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>2026年3月13日</span>
+                </div>
+                <div class="hero-meta-item">
+                    <i class="fas fa-user"></i>
+                    <span>研究員：阿蓋小弟</span>
+                </div>
+                <div class="hero-meta-item">
+                    <i class="fas fa-database"></i>
+                    <span>資料來源：Semrush、Conductor、Microsoft Ads</span>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="#knowledge" class="btn btn-primary">
+                    <i class="fas fa-book-open"></i>
+                    開始閱讀
+                </a>
+                <a href="https://github.com/gaskhuang" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">4.4x</div>
+                <div class="stat-label">AI 訪客轉換率<br>vs 傳統搜尋</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">90%</div>
+                <div class="stat-label">ChatGPT 引用<br>來自排名 21+</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">30-40%</div>
+                <div class="stat-label">含數據內容<br>AI 可見度提升</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">8億+</div>
+                <div class="stat-label">ChatGPT<br>每週活躍用戶</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2028</div>
+                <div class="stat-label">AI 搜尋預計<br>超越傳統搜尋</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AEO Knowledge Map -->
+    <section id="knowledge" class="fade-in">
+        <div class="section-header">
+            <span class="section-tag">Knowledge Map</span>
+            <h2 class="section-title">AEO 完整知識地圖</h2>
+            <p class="section-desc">Answer Engine Optimization — 讓內容成為 AI 引用的「真理來源」</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">📖</div>
+                <h3 class="card-title">什麼是 AEO？</h3>
+            </div>
+            <p><strong>AEO（Answer Engine Optimization，答案引擎優化）</strong>是透過優化內容的結構與主題權威性，使其成為 AI 驅動搜尋引擎（如 ChatGPT、Perplexity、Google AI Overviews）中被引用為「最終答案」的最佳化過程。</p>
+            
+            <div class="highlight-box">
+                <p class="highlight-text">在傳統搜尋中，你的體驗是在找答案。在新時代，LLM 直接要給你答案。</p>
+                <p class="highlight-author">— Patrick Reinhart, VP, Conductor</p>
+            </div>
+
+            <h4 style="margin: 2rem 0 1rem; color: var(--primary);">與傳統 SEO 的本質差異</h4>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>維度</th>
+                            <th>傳統 SEO</th>
+                            <th>AEO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>主要目標</strong></td>
+                            <td>關鍵字排名、網站流量</td>
+                            <td>成為 AI 引用的答案來源</td>
+                        </tr>
+                        <tr>
+                            <td><strong>成效指標</strong></td>
+                            <td>排名、點擊率、流量</td>
+                            <td>AI 引用次數、品牌提及、Citation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>內容焦點</strong></td>
+                            <td>關鍵字密度、反向連結</td>
+                            <td>直接回答性、結構化、可提取性</td>
+                        </tr>
+                        <tr>
+                            <td><strong>目標引擎</strong></td>
+                            <td>Google、Bing 演算法</td>
+                            <td>ChatGPT、Perplexity、Google AI Overviews</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h3 style="margin: 3rem 0 2rem; text-align: center;">AEO 五大核心原則</h3>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--gradient-2);">1</div>
+                    <h4 class="card-title">結構性內容優先</h4>
+                </div>
+                <ul class="checklist">
+                    <li>使用清晰的 H1/H2/H3 層級標題</li>
+                    <li>問答式格式（Q&A）</li>
+                    <li>條列式要點（Bullet Points）</li>
+                    <li>精確、簡潔的定義段落</li>
+                    <li>FAQ Schema 標記</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--gradient-2);">2</div>
+                    <h4 class="card-title">主題權威性</h4>
+                </div>
+                <ul class="checklist">
+                    <li>建立完整的主題叢集（Topic Clusters）</li>
+                    <li>一個主題下涵蓋多個相關子頁</li>
+                    <li>內部連結結構清晰</li>
+                    <li>避免「孤立頁面（Orphan Pages）」</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--gradient-2);">3</div>
+                    <h4 class="card-title">E-E-A-T 信號</h4>
+                </div>
+                <ul class="checklist">
+                    <li><strong>Experience</strong>：提供第一手實作經驗</li>
+                    <li><strong>Expertise</strong>：作者署名、資格認證</li>
+                    <li><strong>Authoritativeness</strong>：被權威來源引用</li>
+                    <li><strong>Trustworthiness</strong>：數據引用、更新日期</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--gradient-2);">4</div>
+                    <h4 class="card-title">意圖對齊</h4>
+                </div>
+                <ul class="checklist">
+                    <li>長尾問句優化（"How do I...", "What is..."）</li>
+                    <li>對話式自然語言</li>
+                    <li>跨裝置適應（尤其語音搜尋）</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+            <div class="card-header">
+                <div class="card-icon" style="background: var(--gradient-3);">5</div>
+                <h4 class="card-title">可抓取性（AI Crawlability）</h4>
+            </div>
+            <div class="code-block">
+# ⚠️ 檢查 robots.txt 是否意外封鎖 AI 爬蟲
+
+User-agent: GPTBot           ← OpenAI
+User-agent: PerplexityBot    ← Perplexity  
+User-agent: ClaudeBot        ← Anthropic
+User-agent: Googlebot-Extended  ← Google AI
+
+# 確認沒有 Disallow: / 在這些 User-agent 下！
+            </div>
+            <ul class="checklist">
+                <li>不要在 robots.txt 中封鎖 LLM 爬蟲</li>
+                <li>使用伺服器端渲染（SSR）</li>
+                <li>確保重要頁面都有被 Google 索引</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- GEO Knowledge Map -->
+    <section style="background: rgba(6, 182, 212, 0.05);">
+        <div class="section-header">
+            <span class="section-tag" style="background: rgba(6, 182, 212, 0.2); color: var(--secondary);">Knowledge Map</span>
+            <h2 class="section-title">GEO 完整知識地圖</h2>
+            <p class="section-desc">Generative Engine Optimization — 讓品牌被整合進 AI 生成的回答中</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon" style="background: var(--gradient-2);">🎯</div>
+                <h3 class="card-title">什麼是 GEO？</h3>
+            </div>
+            <p><strong>GEO（Generative Engine Optimization，生成式引擎優化）</strong>是策略性地創建與優化內容，使其能夠被 AI 生成式搜尋引擎理解、呈現並整合進 AI 生成的回答中。</p>
+            
+            <div class="highlight-box" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%); border-color: rgba(6, 182, 212, 0.3);">
+                <p class="highlight-text">GEO 是讓你的品牌在 AI 驅動的資訊生態系統中保持可見與相關性的過程，即使對話是由生成式引擎所主導。</p>
+                <p class="highlight-author">— Conductor Academy</p>
+            </div>
+
+            <h4 style="margin: 2rem 0 1rem; color: var(--secondary);">GEO 的核心洞察</h4>
+            <ul class="checklist">
+                <li>不只是「被找到」，而是「被引用為答案的一部分」</li>
+                <li>競爭的不是「排名第一」，而是「被整合進 AI 的合成回答」</li>
+                <li>品牌即使不在前五名，也可能被 AI 引用（ChatGPT 引用 90% 來自傳統排名 21 名以後的頁面）</li>
+            </ul>
+        </div>
+
+        <h3 style="margin: 3rem 0 2rem; text-align: center;">GEO 五大核心原則</h3>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--gradient-2);">📊</div>
+                    <h4 class="card-title">內容的「可引用性」</h4>
+                </div>
+                <p style="color: var(--success); font-weight: 600; margin-bottom: 1rem;">
+                    <i class="fas fa-arrow-up"></i> 包含引用語句與統計數據的頁面，AI 可見度高 30-40%
+                </p>
+                <ul class="checklist">
+                    <li>加入統計數據（附上原始來源）</li>
+                    <li>使用引用格式（blockquote）</li>
+                    <li>包含專家引言</li>
+                    <li>原創研究與數據</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--gradient-2);">🌐</div>
+                    <h4 class="card-title">全渠道品牌提及</h4>
+                </div>
+                <ul class="checklist">
+                    <li>在 Reddit 參與相關討論</li>
+                    <li>建立業界媒體報導（PR、Guest Post）</li>
+                    <li>在 Wikipedia 上有準確的品牌條目</li>
+                    <li>在各大評測平台有正面評價</li>
+                    <li>社群媒體品牌提及（無連結也有效）</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--gradient-2);">🎨</div>
+                    <h4 class="card-title">多模態內容策略</h4>
+                </div>
+                <ul class="checklist">
+                    <li>為圖片添加描述性 Alt 文字</li>
+                    <li>提供影片的完整文字稿</li>
+                    <li>製作 Infographic 並附上文字版本</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--gradient-2);">⚡</div>
+                    <h4 class="card-title">技術可訪問性</h4>
+                </div>
+                <ul class="checklist">
+                    <li>優先使用 SSR（Server-Side Rendering）</li>
+                    <li>確保核心內容不依賴 JavaScript</li>
+                    <li>提供清晰的 sitemap.xml</li>
+                    <li>維持頁面載入速度（Core Web Vitals）</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+            <div class="card-header">
+                <div class="card-icon" style="background: var(--gradient-3);">💡</div>
+                <h4 class="card-title">獨特洞察與差異化</h4>
+            </div>
+            <ul class="checklist">
+                <li>發布原創研究報告</li>
+                <li>提供業界數據與調查結果</li>
+                <li>分享實際案例研究（Case Study）</li>
+                <li>提供他人沒有的第一手見解</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Trends Section -->
+    <section id="trends" class="fade-in">
+        <div class="section-header">
+            <span class="section-tag">Trends & Predictions</span>
+            <h2 class="section-title">2026 年趨勢預測</h2>
+            <p class="section-desc">AI 搜尋時代的七大關鍵預測</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="case-card">
+                    <div class="case-number">01</div>
+                    <span class="case-tag">關鍵預測</span>
+                    <h3 class="case-title">AI 搜尋流量 2028 年超越傳統搜尋</h3>
+                    <p>根據 Semrush 研究，AI 搜尋帶來的訪客流量預計在 <strong>2028 年超越傳統搜尋</strong>。但如果 Google AI Mode 成為默認搜尋體驗，這個轉折點可能提前至 <strong>2026-2027 年</strong>。</p>
+                    <div class="case-result">
+                        <i class="fas fa-lightbulb"></i>
+                        現在布局 AEO/GEO 的品牌，將在 2-3 年後享有先行者優勢
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="case-card">
+                    <div class="case-number">02</div>
+                    <span class="case-tag">趨勢</span>
+                    <h3 class="case-title">零點擊搜尋（Zero-Click）比例持續上升</h3>
+                    <p>AI 直接給出答案，使用者不必點擊任何網站。品牌的目標將從「獲取點擊」轉變為「成為 AI 答案中的引用來源」。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="case-card">
+                    <div class="case-number">03</div>
+                    <span class="case-tag">策略轉變</span>
+                    <h3 class="case-title">品牌提及成為新的「反向連結」</h3>
+                    <p>傳統 SEO 的核心貨幣是「反向連結」；在 AEO/GEO 時代，無論有無連結的品牌提及都更加重要。這意味著 <strong>PR 與 Content Marketing 的重要性大幅提升</strong>。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="case-card">
+                    <div class="case-number">04</div>
+                    <span class="case-tag">新興領域</span>
+                    <h3 class="case-title">Agentic Search 成為主流</h3>
+                    <p>AI Agent（如 OpenAI Operator、Anthropic Computer Use）代替使用者執行任務時，品牌能見度決定是否被 AI Agent 推薦或選擇。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="case-card">
+                    <div class="case-number">05</div>
+                    <span class="case-tag">市場機會</span>
+                    <h3 class="case-title">AEO/GEO 工具市場爆發</h3>
+                    <p>2025-2026 年，大量 AI 能見度監測工具湧現（Semrush AIO、Conductor、BrightEdge、Authoritas、Profound 等）。市場從「排名追蹤」演化為「AI 引用追蹤」。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section id="cases" style="background: rgba(245, 158, 11, 0.05);">
+        <div class="section-header">
+            <span class="section-tag" style="background: rgba(245, 158, 11, 0.2); color: var(--accent);">Success Stories</span>
+            <h2 class="section-title">Top 10 成功案例</h2>
+            <p class="section-desc">真實數據證明的 AEO/GEO 成效</p>
+        </div>
+
+        <div class="grid-2">
+            <div class="case-card">
+                <div class="case-number">01</div>
+                <span class="case-tag">電商</span>
+                <h3 class="case-title">電商品牌透過 AI 引用提升轉換率</h3>
+                <p><strong>背景：</strong>Spacebar Collective 客戶投入 AEO/GEO 優化</p>
+                <p><strong>策略：</strong>追蹤哪些媒體內容成為 ChatGPT、Gemini、Perplexity 的引用來源</p>
+                <div class="case-result">
+                    <i class="fas fa-chart-line"></i>
+                    ChatGPT 流量轉換率達到約 30%（遠高於傳統有機流量）
+                </div>
+            </div>
+            <div class="case-card">
+                <div class="case-number">02</div>
+                <span class="case-tag">大型零售</span>
+                <h3 class="case-title">Ashley Furniture AI 可見度優化</h3>
+                <p><strong>背景：</strong>全球零售電商規模企業</p>
+                <p><strong>策略：</strong>審計 robots.txt、修復未索引頁面、全站 Schema、SSR 渲染</p>
+                <div class="case-result">
+                    <i class="fas fa-trophy"></i>
+                    從根本上解決 AI 不可見問題，成為 C3 2025 大會案例
+                </div>
+            </div>
+            <div class="case-card">
+                <div class="case-number">03</div>
+                <span class="case-tag">數據研究</span>
+                <h3 class="case-title">Semrush AI 搜尋研究 — AI 訪客 4.4x 價值</h3>
+                <p><strong>方法：</strong>追蹤 500+ 數位行銷主題的 AI 搜尋流量與轉換率</p>
+                <div class="case-result">
+                    <i class="fas fa-star"></i>
+                    AI 搜尋訪客轉換率是傳統搜尋的 4.4 倍
+                </div>
+            </div>
+            <div class="case-card">
+                <div class="case-number">04</div>
+                <span class="case-tag">學術研究</span>
+                <h3 class="case-title">Princeton/Georgia Tech 聯合研究</h3>
+                <p><strong>規模：</strong>分析 10,000 個真實世界查詢</p>
+                <div class="case-result">
+                    <i class="fas fa-microscope"></i>
+                    含引用語句與統計數據的頁面，AI 可見度提升 30-40%
+                </div>
+            </div>
+            <div class="case-card">
+                <div class="case-number">06</div>
+                <span class="case-tag">彎道超車</span>
+                <h3 class="case-title">ChatGPT 引用「長尾排名」內容現象</h3>
+                <p><strong>發現：</strong>ChatGPT 引用的頁面中，近 90% 在傳統搜尋排名 21 位以後</p>
+                <div class="case-result">
+                    <i class="fas fa-rocket"></i>
+                    GEO 是小品牌彎道超車大品牌的難得機會
+                </div>
+            </div>
+            <div class="case-card">
+                <div class="case-number">08</div>
+                <span class="case-tag">B2B SaaS</span>
+                <h3 class="case-title">B2B SaaS 企業透過 FAQ Schema 進入 AI 摘要</h3>
+                <p><strong>策略：</strong>產品頁面新增 FAQPage Schema、問句格式標題</p>
+                <div class="case-result">
+                    <i class="fas fa-check-circle"></i>
+                    在 Google AI Overviews 和 ChatGPT 中被引用為定義性答案
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="fade-in">
+        <div class="section-header">
+            <span class="section-tag">Tools & Resources</span>
+            <h2 class="section-title">Top 10 推薦工具與資源</h2>
+            <p class="section-desc">AEO/GEO 優化必備工具箱</p>
+        </div>
+
+        <h3 style="margin: 0 0 2rem; color: var(--primary);">
+            <i class="fas fa-crown"></i> AI 能見度監測工具
+        </h3>
+        <div class="grid-2">
+            <div class="tool-card">
+                <div class="tool-rating">⭐⭐⭐⭐⭐</div>
+                <h4 class="tool-name">Semrush AI Visibility Toolkit</h4>
+                <p class="tool-desc">追蹤品牌在 ChatGPT、Perplexity、Google AI Overviews 的引用。適合中小企業。</p>
+                <a href="https://semrush.com/semrush-ai-toolkit/" target="_blank" class="tool-link">
+                    了解更多 <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="tool-card">
+                <div class="tool-rating">⭐⭐⭐⭐⭐</div>
+                <h4 class="tool-name">Semrush Enterprise AIO</h4>
+                <p class="tool-desc">企業級 AI 能見度追蹤，跨 LLM 即時監控。適合 Fortune 500。</p>
+                <a href="https://semrush.com/lp/enterprise-aio/" target="_blank" class="tool-link">
+                    了解更多 <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="tool-card">
+                <div class="tool-rating">⭐⭐⭐⭐⭐</div>
+                <h4 class="tool-name">Conductor Intelligence</h4>
+                <p class="tool-desc">全方位 AEO/GEO 優化平台。AI 引用追蹤、內容優化建議、Log File 分析。</p>
+                <a href="https://conductor.com" target="_blank" class="tool-link">
+                    了解更多 <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="tool-card">
+                <div class="tool-rating">⭐⭐⭐⭐</div>
+                <h4 class="tool-name">Perplexity AI</h4>
+                <p class="tool-desc">測試自己的內容是否被 AI 引用。直接查詢品牌相關問題。</p>
+                <a href="https://perplexity.ai" target="_blank" class="tool-link">
+                    了解更多 <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <h3 style="margin: 3rem 0 2rem; color: var(--secondary);">
+            <i class="fas fa-tools"></i> 技術 SEO / AEO 工具
+        </h3>
+        <div class="grid-3">
+            <div class="tool-card">
+                <div class="tool-rating">⭐⭐⭐⭐⭐</div>
+                <h4 class="tool-name">Google Search Console</h4>
+                <p class="tool-desc">監控 AI Overviews 帶來的曝光與點擊。最直接的 AEO 效果測量工具。</p>
+                <span class="tool-link" style="color: var(--success);">
+                    <i class="fas fa-check"></i> 免費
+                </span>
+            </div>
+            <div class="tool-card">
+                <div class="tool-rating">⭐⭐⭐⭐⭐</div>
+                <h4 class="tool-name">Schema Markup Validator</h4>
+                <p class="tool-desc">驗證 Schema 結構化資料是否正確。貼上 URL 即時檢查。</p>
+                <span class="tool-link" style="color: var(--success);">
+                    <i class="fas fa-check"></i> 免費
+                </span>
+            </div>
+            <div class="tool-card">
+                <div class="tool-rating">⭐⭐⭐⭐</div>
+                <h4 class="tool-name">Screaming Frog</h4>
+                <p class="tool-desc">全站爬蟲分析，檢查 Schema 實作、AI 爬蟲封鎖設定。</p>
+                <span class="tool-link" style="color: var(--accent);">
+                    <i class="fas fa-pound-sign"></i> £199/年
+                </span>
+            </div>
+        </div>
+
+        <h3 style="margin: 3rem 0 2rem; color: var(--accent);">
+            <i class="fas fa-book"></i> 必讀資源
+        </h3>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon" style="background: var(--gradient-3);">📚</div>
+                <h4 class="card-title">Microsoft Ads AEO/GEO 官方指南</h4>
+            </div>
+            <p>「From Discovery to Influence: A Guide to AEO and GEO」— Microsoft Advertising 官方白皮書</p>
+            <ul class="checklist" style="margin-top: 1rem;">
+                <li>讓商品目錄機器可讀</li>
+                <li>結構化問答內容</li>
+                <li>透過可信來源建立權威</li>
+            </ul>
+            <a href="https://about.ads.microsoft.com" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-flex;">
+                <i class="fas fa-external-link-alt"></i>
+                查看官方指南
+            </a>
+        </div>
+    </section>
+
+    <!-- Strategies Section -->
+    <section id="strategies" style="background: rgba(239, 68, 68, 0.05);">
+        <div class="section-header">
+            <span class="section-tag" style="background: rgba(239, 68, 68, 0.2); color: var(--danger);">Action Plan</span>
+            <h2 class="section-title">5 個可直接使用的優化策略</h2>
+            <p class="section-desc">本週就能開始執行的 AEO/GEO 行動方案</p>
+        </div>
+
+        <div class="strategy-card" style="margin-bottom: 2rem;">
+            <div class="strategy-number">1</div>
+            <h3 class="strategy-title">「AI 爬蟲審計」— 立即執行，零成本</h3>
+            <p style="color: var(--gray); margin-bottom: 1rem;">許多企業在不知情的狀況下封鎖了 AI 爬蟲，導致完全不出現在 AI 搜尋中。</p>
+            <div class="code-block">
+# 執行步驟：
+
+1. 打開 robots.txt 檔案
+   URL: https://你的網域.com/robots.txt
+
+2. 搜尋是否存在以下封鎖：
+   User-agent: GPTBot           ← OpenAI
+   User-agent: PerplexityBot    ← Perplexity
+   User-agent: ClaudeBot        ← Anthropic
+   User-agent: Googlebot-Extended  ← Google AI
+   
+3. 如果有 Disallow: / 在這些 User-agent 下，立即移除
+
+4. 確認 robots.txt 不包含通配符封鎖所有機器人
+            </div>
+            <div class="case-result">
+                <i class="fas fa-clock"></i>
+                預期成果：1-3 個月後，AI 搜尋中的品牌能見度從零提升
+            </div>
+        </div>
+
+        <div class="strategy-card" style="margin-bottom: 2rem;">
+            <div class="strategy-number">2</div>
+            <h3 class="strategy-title">「答案頁面工廠」— 快速建立 AEO 內容資產</h3>
+            <p style="color: var(--gray); margin-bottom: 1rem;">針對業界高頻問題，建立「一問一答」的高品質答案頁面</p>
+            <div class="code-block">
+# 執行模板：
+
+# [問句型標題，例如：什麼是 [客戶的產品/服務]？]
+
+## 直接答案（50字以內）
+[客戶的產品/服務] 是...（給出清晰、直接的定義）
+
+## 詳細說明
+...
+
+## [客戶的產品] 的三大優點
+1. ...
+2. ...
+3. ...
+
+## 常見問題（FAQPage Schema）
+**問：...？**
+答：...
+
+## 數據與研究
+根據 [可信來源]，[統計數據]...
+            </div>
+            <div class="case-result">
+                <i class="fas fa-target"></i>
+                每月目標：產出 10-20 個答案頁面 | 2-4 個月後開始出現在 AI Overviews
+            </div>
+        </div>
+
+        <div class="strategy-card" style="margin-bottom: 2rem;">
+            <div class="strategy-number">3</div>
+            <h3 class="strategy-title">「Schema 全面部署計劃」— 技術優化一次到位</h3>
+            <div class="comparison-table">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Schema 類型</th>
+                            <th>適用頁面</th>
+                            <th>優先級</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>FAQPage</td>
+                            <td>產品頁、博客文章</td>
+                            <td><span class="priority priority-p0">⭐⭐⭐⭐⭐</span></td>
+                        </tr>
+                        <tr>
+                            <td>HowTo</td>
+                            <td>操作指南</td>
+                            <td><span class="priority priority-p0">⭐⭐⭐⭐⭐</span></td>
+                        </tr>
+                        <tr>
+                            <td>Article + Author</td>
+                            <td>所有部落格文章</td>
+                            <td><span class="priority priority-p0">⭐⭐⭐⭐⭐</span></td>
+                        </tr>
+                        <tr>
+                            <td>Product + Review</td>
+                            <td>電商產品頁</td>
+                            <td><span class="priority priority-p0">⭐⭐⭐⭐⭐</span></td>
+                        </tr>
+                        <tr>
+                            <td>LocalBusiness</td>
+                            <td>實體店面或服務地點</td>
+                            <td><span class="priority priority-p2">⭐⭐⭐⭐</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="case-result">
+                <i class="fas fa-check-double"></i>
+                驗證工具：Google Rich Results Test（免費）
+            </div>
+        </div>
+
+        <div class="strategy-card" style="margin-bottom: 2rem;">
+            <div class="strategy-number">4</div>
+            <h3 class="strategy-title">「AI 能見度監測 Dashboard」— 建立持續追蹤系統</h3>
+            <div class="code-block">
+# 手動追蹤方法（低成本版）：
+
+每月執行以下查詢並記錄結果：
+
+在 ChatGPT 輸入：
+"What are the best [客戶行業] companies/products?"
+"Who is the best provider of [客戶服務]?"
+"Recommend a [客戶產品類別]"
+
+在 Perplexity 輸入：
+相同問題
+
+在 Google 輸入：
+[客戶品牌] 相關核心問題（觀察 AI Overviews）
+
+記錄：品牌是否被提及？正面/負面/中性？排在幾番？
+            </div>
+            <div class="case-result">
+                <i class="fas fa-chart-bar"></i>
+                自動化版本：使用 Semrush AI Visibility Toolkit 或 Conductor
+            </div>
+        </div>
+
+        <div class="strategy-card">
+            <div class="strategy-number">5</div>
+            <h3 class="strategy-title">「品牌提及生態系建設計劃」— 長期資產布局</h3>
+            <div class="comparison-table">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>月份</th>
+                            <th>行動</th>
+                            <th>目標平台</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>第1個月</td>
+                            <td>建立/優化 Wikipedia 條目</td>
+                            <td>Wikipedia</td>
+                        </tr>
+                        <tr>
+                            <td>第1-2個月</td>
+                            <td>Reddit 參與策略（回答問題、不推銷）</td>
+                            <td>Reddit</td>
+                        </tr>
+                        <tr>
+                            <td>第2-3個月</td>
+                            <td>Quora 答題計劃</td>
+                            <td>Quora</td>
+                        </tr>
+                        <tr>
+                            <td>第3-4個月</td>
+                            <td>媒體 PR 計劃（鎖定 AI 高引用媒體）</td>
+                            <td>TechCrunch、業界媒體</td>
+                        </tr>
+                        <tr>
+                            <td>第4-5個月</td>
+                            <td>原創研究報告發布</td>
+                            <td>官網 + 媒體</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="fade-in">
+        <div class="section-header">
+            <span class="section-tag">Conclusion</span>
+            <h2 class="section-title">結語</h2>
+        </div>
+
+        <div class="highlight-box" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(245, 158, 11, 0.2) 100%); border-color: rgba(99, 102, 241, 0.4); text-align: center;">
+            <p class="highlight-text" style="font-size: 1.5rem;">
+                AEO 與 GEO 代表著數位行銷的典範轉移。<br>
+                <strong>從「讓人找到你」到「讓 AI 替你說話」</strong>，<br>
+                這是一個正在發生的革命。
+            </p>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+            <h3 style="margin-bottom: 1.5rem; color: var(--primary);">
+                <i class="fas fa-bullhorn"></i> 給客戶的核心訊息
+            </h3>
+            <div class="highlight-box">
+                <p class="highlight-text">現在開始優化的品牌，將在 2027-2028 年享有先行者紅利。等到 AI 搜尋完全主流化後才開始，就像 2010 年才開始做 SEO 一樣。競爭窗口正在關閉。</p>
+            </div>
+        </div>
+
+        <h3 style="margin: 3rem 0 2rem; text-align: center;">
+            <i class="fas fa-rocket"></i> 優先行動（本週就能做的三件事）
+        </h3>
+        <div class="grid-3">
+            <div class="card" style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+                <h4 style="margin-bottom: 1rem;">檢查 robots.txt</h4>
+                <p style="color: var(--gray);">確保未封鎖 AI 爬蟲（GPTBot、PerplexityBot、ClaudeBot）</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🔍</div>
+                <h4 style="margin-bottom: 1rem;">測試品牌現況</h4>
+                <p style="color: var(--gray);">在 Perplexity/ChatGPT 搜尋你的品牌名，了解現狀</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🏷️</div>
+                <h4 style="margin-bottom: 1rem;">部署 FAQ Schema</h4>
+                <p style="color: var(--gray);">為網站最重要的 5 個頁面加上結構化資料</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">🦞 AEO×GEO Report</div>
+        <p class="footer-text">由阿蓋小弟研究整理 | 2026年3月13日</p>
+        <div class="footer-links">
+            <a href="https://github.com/gaskhuang" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#knowledge">知識地圖</a>
+            <a href="#trends">趨勢預測</a>
+            <a href="#strategies">優化策略</a>
+        </div>
+        <p class="footer-copy">
+            報告版本：v1.0 | 研究日期：2026-03-13 | 下次更新建議：2026-06-13<br>
+            資料來源：Semrush、Conductor、Microsoft Ads、Search Engine Land、arXiv
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add visible class to hero elements immediately
+        document.querySelector('.hero-content').classList.add('visible');
+    </script>
+</body>
+</html>
