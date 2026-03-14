@@ -10,6 +10,7 @@ G大專屬的數位情報與自動化報告中心。
 
 | 日期 | 報告題目 | 在線連結 |
 | :--- | :--- | :--- |
+| 2026-03-14 | AEO & GEO 深度研究報告 2026 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/aeo-geo-report-2026.html) |
 | 2026-02-26 | 每日覆盤報告 - 三大痛點全網最佳解 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/nightly_review_20260226_0340.md) |
 | 2026-02-24 | 每日覆盤報告 - 五大痛點最佳解 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-24/nightly_routine_report.html) |
 | 2026-02-22 | 七王模型重組 | [點此開啟](https://gaskhuang.github.io/sentinel-intelligence-hub/reports/2026-02-22/seven_kings_reorganization.html) |
